@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:parceragem/app/presentation/features/home/search.dart';
+import 'package:parceragem/app/presentation/shared/components/widgets/widgets.dart';
 import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
 
 import '../../features/home/home_client.dart';
 
 class Layout extends StatefulWidget {
-  const Layout({Key? key, required this.body}) : super(key: key);
+  const Layout({Key? key, required this.body, this.floatingActionButton}) : super(key: key);
   final Widget body;
+  final FloatingActionButton? floatingActionButton;
   @override
   _LayoutState createState() => _LayoutState();
 }
@@ -16,15 +18,9 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 100,
-        title: Icon(
-          Icons.people_alt_rounded,
-          size: 80,
-        ),
-        centerTitle: true,
-      ),
+      appBar: CustomAppbar(),
       body: widget.body,
+      floatingActionButton: widget.floatingActionButton,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.colorLightPrimary,
         unselectedItemColor: Colors.white,
