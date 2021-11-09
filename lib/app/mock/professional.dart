@@ -4,7 +4,7 @@ final professionals = [
     "name" : "Itamar",
     "phone" : "98798709",
     "email" : "teste01@gmail.com",
-    "photo_path" : "/profile.png",
+    "photo_path" : "",
     "document_id" : 1,
     "password" : "***********",
     "api_token" : 1

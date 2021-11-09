@@ -4,6 +4,7 @@ import 'package:parceragem/app/mock/professional.dart';
 import 'package:parceragem/app/presentation/shared/components/layout.dart';
 import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
 import 'package:parceragem/app/presentation/shared/theme/AppFonts.dart';
+import 'dart:io';
 
 class OrderListing extends StatefulWidget {
   const OrderListing({Key? key, required this.taskId}) : super(key: key);
@@ -32,25 +33,63 @@ class _OrderListingState extends State<OrderListing> {
             padding: const EdgeInsets.all(10.0),
             child: GestureDetector(
               child: SizedBox(
-                height: 50,
+                height: 70,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: AppColors.colorLightPrimary,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        Text(
-                          professionals.firstWhere((e) => e['id']==ordersList[index]['professional_id'])['name'].toString(),
-                          style: AppFonts.normalPrimaryWhite,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/person.png"),
+                            ),
+                          ),
                         ),
-                        Text(
-                          ordersList[index]['price'].toString(),
-                          style: AppFonts.normalPrimaryWhite,
-                        ),
-                      ],
-                    ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                professionals
+                                    .firstWhere((e) =>
+                                        e['id'] ==
+                                        ordersList[index]
+                                            ['professional_id'])['name']
+                                    .toString(),
+                                style: AppFonts.normalPrimaryWhite,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                ordersList[index]['date'].toString(),
+                                style: AppFonts.normalPrimaryWhite,
+                              ),
+                              Text(
+                                " : ",
+                                style: AppFonts.normalPrimaryWhite,
+                              ),
+                              Text(
+                                ordersList[index]['hour'].toString(),
+                                style: AppFonts.normalPrimaryWhite,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
