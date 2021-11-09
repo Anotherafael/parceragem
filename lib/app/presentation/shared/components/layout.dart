@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:parceragem/app/presentation/features/home/search.dart';
+import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
 
-import '../../features/home/home_logged.dart';
-import '../../features/home/home_page.dart';
+import '../../features/home/home_client.dart';
 
 class Layout extends StatefulWidget {
-  const Layout({Key? key}) : super(key: key);
-
+  const Layout({Key? key, required this.body}) : super(key: key);
+  final Widget body;
   @override
   _LayoutState createState() => _LayoutState();
 }
 
 class _LayoutState extends State<Layout> {
   int index = 0;
-  final List<Widget> screens = [HomeLogged(), HomePage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,12 +24,12 @@ class _LayoutState extends State<Layout> {
         ),
         centerTitle: true,
       ),
-      body: screens[index],
+      body: widget.body,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: AppColors.colorLightPrimary,
         unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.black,
-        currentIndex: 0,
+        selectedItemColor: Colors.white,
+        currentIndex: index,
         onTap: onTabTapped,
         items: [
           BottomNavigationBarItem(
@@ -39,10 +39,13 @@ class _LayoutState extends State<Layout> {
       ),
     );
   }
-
   void onTabTapped(int i) {
-    setState(() {
-      index = i;
-    });
+    switch(i){
+      case 0: 
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeClient()));
+        break;
+        case 1: 
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Search()));
+    }
   }
 }
