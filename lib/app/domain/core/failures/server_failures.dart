@@ -1,0 +1,1 @@
+enum ServerFailures { notFound, serverError }
