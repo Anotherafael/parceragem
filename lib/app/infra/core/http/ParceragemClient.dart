@@ -9,7 +9,8 @@ class ParceragemClient extends DioMixin {
   BaseOptions get options => BaseOptions(
         baseUrl: 'http://10.0.2.2:8000/api/v1/',
         headers: {
-          'Accept': 'application/json',
+          'content-Type': 'application/json',
+          'authorization': 'Bearer 24|x8VfyZ1IHoEIhGB4L7zhKCtVBl4MtlzcmGympug2',
         },
       );
 }

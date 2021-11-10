@@ -1,17 +1,17 @@
 import 'package:equatable/equatable.dart';
 
 class SectionEntity extends Equatable {
-  final String uuid;
+  final String id;
   final String name;
 
   SectionEntity({
-    required this.uuid,
+    required this.id,
     required this.name,
   });
 
   @override
   List<Object?> get props => [
-        uuid,
+        id,
         name,
       ];
 }

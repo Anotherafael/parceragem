@@ -3,36 +3,36 @@ import 'dart:convert';
 import 'package:parceragem/app/domain/entities/section_entity.dart';
 
 class SectionModel {
-  String uuid;
+  String id;
   String name;
 
   SectionModel({
-    required this.uuid,
+    required this.id,
     required this.name,
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'uuid': uuid,
+      'id': id,
       'name': name,
     };
   }
 
   factory SectionModel.fromMap(Map<String, dynamic> map) {
     return SectionModel(
-      uuid: map['uuid'] ?? '',
+      id: map['id'] ?? '',
       name: map['name'] ?? '',
     );
   }
 
   SectionEntity toEntity() => SectionEntity(
-        uuid: uuid,
+        id: id,
         name: name,
       );
 
   factory SectionModel.fromEntity(SectionEntity entity) {
     return SectionModel(
-      uuid: entity.uuid,
+      id: entity.id,
       name: entity.name,
     );
   }
