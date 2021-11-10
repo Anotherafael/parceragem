@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:parceragem/app/mock/Profession.dart';
 import 'package:parceragem/app/presentation/features/orders/task_filter.dart';
 import 'package:parceragem/app/presentation/shared/components/layout.dart';
@@ -6,19 +7,19 @@ import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
 import 'package:parceragem/app/presentation/shared/theme/AppFonts.dart';
 
 class ProfessionFilter extends StatefulWidget {
-  const ProfessionFilter({ Key? key, required this.sectionId }) : super(key: key);
-  final int sectionId;
+  const ProfessionFilter({ Key? key}) : super(key: key);
   @override
   _ProfessionFilterState createState() => _ProfessionFilterState();
 }
 
 class _ProfessionFilterState extends State<ProfessionFilter> {
+  final int sectionId = Get.arguments;
   late List professionsList=[];
   @override
   void initState() {
     super.initState();
     for (var item in professions) {
-      if(item['area_id']==widget.sectionId)
+      if(item['area_id']==sectionId)
       professionsList.add(item);
     }
   }
@@ -32,7 +33,7 @@ class _ProfessionFilterState extends State<ProfessionFilter> {
               padding: const EdgeInsets.all(10.0),
               child: GestureDetector(
                 onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>TaskFilter(professionId: professionsList[index]['id'])));
+                  Get.toNamed("/taskfilter", arguments: professionsList[index]['id']);
                 },
                 child: SizedBox(
                   height: 50,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:parceragem/app/presentation/features/home/search.dart';
 import 'package:parceragem/app/presentation/shared/components/widgets/widgets.dart';
 import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
@@ -38,10 +39,10 @@ class _LayoutState extends State<Layout> {
   void onTabTapped(int i) {
     switch(i){
       case 0: 
-        Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeClient()));
+        Get.toNamed("/homeclient");
         break;
         case 1: 
-        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Search()));
+        Get.toNamed("/search");
     }
   }
 }

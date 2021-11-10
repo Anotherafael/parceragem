@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:parceragem/app/presentation/features/orders/section_filter.dart';
 import 'package:parceragem/app/presentation/shared/components/layout.dart';
 
@@ -19,7 +20,7 @@ class _HomeClientState extends State<HomeClient> {
             padding: EdgeInsets.fromLTRB(15, 10, 15, 0),
             child: GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>SectionFilter()));
+                Get.toNamed("/sectionfilter");
               },
               child: Card(
                 color: Colors.blueAccent,

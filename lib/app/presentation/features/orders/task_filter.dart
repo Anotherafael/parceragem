@@ -6,19 +6,19 @@ import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
 import 'package:parceragem/app/presentation/shared/theme/AppFonts.dart';
 
 class TaskFilter extends StatefulWidget {
-  const TaskFilter({Key? key, required this.professionId}) : super(key: key);
-  final int professionId;
+  const TaskFilter({Key? key}) : super(key: key);
   @override
   _TaskFilterState createState() => _TaskFilterState();
 }
 
 class _TaskFilterState extends State<TaskFilter> {
+  final int professionId = Get.arguments;
   late List tasksList = [];
   @override
   void initState() {
     super.initState();
     for (var item in tasks) {
-      if (item['profession_id'] == widget.professionId) tasksList.add(item);
+      if (item['profession_id'] == professionId) tasksList.add(item);
     }
   }
 

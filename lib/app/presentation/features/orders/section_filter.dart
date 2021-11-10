@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:parceragem/app/mock/section.dart';
 import 'package:parceragem/app/presentation/features/orders/profession_filter.dart';
 import 'package:parceragem/app/presentation/shared/components/layout.dart';
@@ -29,7 +30,7 @@ class _SectionFilterState extends State<SectionFilter> {
               padding: const EdgeInsets.all(10.0),
               child: GestureDetector(
                 onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>ProfessionFilter(sectionId: sectionsList[index]['id'])));
+                  Get.toNamed("/professionfilter", arguments: sectionsList[index]['id']);
                 },
                 child: SizedBox(
                   height: 50,
