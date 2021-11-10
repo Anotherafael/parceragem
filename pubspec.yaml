@@ -32,6 +32,7 @@ dependencies:
   equatable: ^2.0.3
   dio: ^4.0.1
   dartz: ^0.10.0
+  get: 
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +49,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  
+  assets:
+    - assets/images/person.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

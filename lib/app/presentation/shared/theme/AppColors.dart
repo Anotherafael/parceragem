@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+Color fromHex(String hexString) {
+  final buffer = StringBuffer();
+  if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
+  buffer.write(hexString.replaceFirst('#', ''));
+  return Color(int.parse(buffer.toString(), radix: 16));
+}
 class AppColors {
   // Light Color
-  static const Color colorLightPrimary = Color(0xFF5C93C4);
-  static const Color colorLightSecondary = Color(0xFFF9F6E5);
-  static const Color colorLightCardColors = Color(0xFFFFFFFF);
+  static Color colorLightPrimary = fromHex("#2A4494");
+  static const Color colorLightSecondary = Color(0x224870);
+  static const Color colorLightCardColors = Color(0x44CFCB);
   // #Light Color
 
 // Light Color
