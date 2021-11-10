@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:parceragem/app/mock/Task.dart';
-import 'package:parceragem/app/presentation/features/orders/orders_listing.dart';
 import 'package:parceragem/app/presentation/shared/components/layout.dart';
 import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
 import 'package:parceragem/app/presentation/shared/theme/AppFonts.dart';
@@ -32,13 +32,7 @@ class _TaskFilterState extends State<TaskFilter> {
             padding: const EdgeInsets.all(10.0),
             child: GestureDetector(
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => OrderListing(
-                      taskId: tasksList[index]['id'],
-                    ),
-                  ),
-                );
+                Get.toNamed("/orderlisting", arguments: tasksList[index]['id']);
               },
               child: SizedBox(
                 height: 50,
