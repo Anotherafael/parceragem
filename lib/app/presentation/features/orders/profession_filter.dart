@@ -23,6 +23,7 @@ class _ProfessionFilterState extends State<ProfessionFilter> {
       professionsList.add(item);
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Layout(

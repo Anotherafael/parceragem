@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:parceragem/app/presentation/core/routes/app_routes.dart';
 import 'package:parceragem/app/presentation/features/home/home_page.dart';
+import 'app/presentation/features/home/home_page.dart';
 
 void main() {
   runApp(MyApp());

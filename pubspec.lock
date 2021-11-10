@@ -150,7 +150,18 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
+    version: "1.3.0"
+  mocktail:
+    dependency: "direct dev"
+    description:
+      name: mocktail
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2-dev.6"
+=======
     version: "1.7.0"
+>>>>>>> c4ced6d9b890a4ff1502d2861ac8790fc422be3a
   path:
     dependency: transitive
     description:
