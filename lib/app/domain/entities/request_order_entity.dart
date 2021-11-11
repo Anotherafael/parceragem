@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+
 import 'order_entity.dart';
 import 'user_entity.dart';
 

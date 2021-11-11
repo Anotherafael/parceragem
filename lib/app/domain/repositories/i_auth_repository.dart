@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+
 import '../core/failures/server_failures.dart';
 
 abstract class IAuthRepository {

@@ -1,7 +1,8 @@
-import 'package:dio/dio.dart';
-import '../../domain/entities/section_entity.dart';
-import '../../domain/core/failures/server_failures.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+
+import '../../domain/core/failures/server_failures.dart';
+import '../../domain/entities/section_entity.dart';
 import '../../domain/repositories/i_section_repository.dart';
 import '../core/http/ParceragemClient.dart';
 import '../models/section_model.dart';

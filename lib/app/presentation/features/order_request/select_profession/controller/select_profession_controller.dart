@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:parceragem/app/domain/repositories/i_profession_repository.dart';
+import '../../../../../domain/repositories/i_profession_repository.dart';
 import '../../../../../domain/core/failures/server_failures.dart';
 
 class SelectProfessionController extends GetxController with StateMixin {

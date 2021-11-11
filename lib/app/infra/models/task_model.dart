@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'section_model.dart';
+
 import '../../domain/entities/task_entity.dart';
 import 'profession_model.dart';
 
@@ -26,7 +28,7 @@ class TaskModel {
     return TaskModel(
       id: map['id'] ?? '',
       name: map['name'] ?? '',
-      profession: map['profession'] ?? '',
+      profession: ProfessionModel.fromMap(map['profession']),
     );
   }
 

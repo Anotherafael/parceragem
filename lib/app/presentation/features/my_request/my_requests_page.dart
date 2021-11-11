@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../shared/components/layout.dart';
 import '../../shared/theme/app_typography.dart';
 

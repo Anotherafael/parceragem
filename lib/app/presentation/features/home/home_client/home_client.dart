@@ -20,7 +20,7 @@ class _HomeClientState extends State<HomeClient> {
             padding: EdgeInsets.fromLTRB(15, 10, 15, 0),
             child: GestureDetector(
               onTap: () {
-                Get.toNamed('/sectionlisting');
+                Get.toNamed('/order-request/sections');
               },
               child: Card(
                 color: Colors.blueAccent,

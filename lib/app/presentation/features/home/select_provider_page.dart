@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../shared/theme/app_typography.dart';
 import 'home_client/home_client.dart';
 import 'home_professional/home_professional.dart';
@@ -27,8 +28,7 @@ class _SelectProviderPageState extends State<SelectProviderPage> {
                         style: ElevatedButton.styleFrom(
                             minimumSize: Size(100, 100)),
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (_) => HomeClient()));
+                          Get.toNamed('/home/client');
                         },
                         child: Icon(
                           Icons.account_box,
@@ -43,10 +43,7 @@ class _SelectProviderPageState extends State<SelectProviderPage> {
                         style: ElevatedButton.styleFrom(
                             minimumSize: Size(100, 100)),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => HomeProfessional()));
+                          Get.toNamed('/home/professional');
                         },
                         child: Icon(Icons.badge, size: 80)),
                     Text("Sou Funcionário", style: AppTypography.normalPrimary)

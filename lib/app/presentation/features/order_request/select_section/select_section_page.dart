@@ -6,7 +6,7 @@ import '../../../shared/theme/app_colors.dart';
 import '../../../shared/theme/app_typography.dart';
 import 'controller/select_section_controller.dart';
 
-class SelectSectionPage extends GetView<SectionFilterController> {
+class SelectSectionPage extends GetView<SelectSectionController> {
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -20,7 +20,7 @@ class SelectSectionPage extends GetView<SectionFilterController> {
                 child: GestureDetector(
                   onTap: () {
                     Get.toNamed(
-                      "/professionfilter",
+                      "/order-request/professions",
                       parameters: {"id": state[index].id},
                     );
                   },

@@ -13,6 +13,6 @@ class SelectSectionBindings implements Bindings {
   void dependencies() {
     Get.put(Dio());
     Get.put<ISectionRepository>(SectionRepositoryImpl(client));
-    Get.put(SectionFilterController(Get.find()));
+    Get.put(SelectSectionController(Get.find()));
   }
 }

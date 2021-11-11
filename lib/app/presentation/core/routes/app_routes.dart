@@ -4,12 +4,14 @@ import '../../features/home/home_client/bindings/home_bindings.dart';
 import '../../features/home/home_client/home_client.dart';
 import '../../features/home/home_professional/home_professional.dart';
 import '../../features/home/select_provider_page.dart';
-import '../../features/my_request/search.dart';
+import '../../features/my_request/my_requests_page.dart';
 import '../../features/order_request/select_profession/bindings/select_profession_bindings.dart';
 import '../../features/order_request/select_profession/select_profession_page.dart';
 import '../../features/order_request/select_professional/create_order_page.dart';
 import '../../features/order_request/select_section/bindings/select_section_bindings.dart';
 import '../../features/order_request/select_section/select_section_page.dart';
+import '../../features/order_request/select_task/bindings/select_task_bindings.dart';
+import '../../features/order_request/select_task/select_task_page.dart';
 
 class AppRoutes {
   static List<GetPage> get pages => [
@@ -18,36 +20,37 @@ class AppRoutes {
           page: () => const SelectProviderPage(),
         ),
         GetPage(
-          name: "/homeclient",
+          name: "/home/client",
           page: () => const HomeClient(),
           binding: HomeBindinds(),
         ),
         GetPage(
-          name: "/homeprofessional",
+          name: "/home/professional",
           page: () => const HomeProfessional(),
           binding: HomeBindinds(),
         ),
         GetPage(
-          name: "/search",
+          name: "/my-requests",
           page: () => const MyRequestPage(),
         ),
         GetPage(
-          name: "/orderlisting",
-          page: () => const OrderListing(),
-        ),
-        GetPage(
-          name: "/sectionlisting",
+          name: "/order-request/sections",
           page: () => SelectSectionPage(),
           binding: SelectSectionBindings(),
         ),
         GetPage(
-          name: "/professionfilter",
+          name: "/order-request/professions",
           page: () => SelectProfessionPage(),
           binding: SelectProfessionBindings(),
         ),
-        // GetPage(
-        //   name: "/taskfilter/:sectionId",
-        //   page: () => const TaskFilter(),
-        // ),
+        GetPage(
+          name: "/order-request/tasks",
+          page: () => SelectTaskPage(),
+          binding: SelectTaskBindings(),
+        ),
+        GetPage(
+          name: "/order-request/professionals",
+          page: () => const OrderListing(),
+        ),
       ];
 }

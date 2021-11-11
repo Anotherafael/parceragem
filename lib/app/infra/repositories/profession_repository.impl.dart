@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:parceragem/app/domain/entities/profession_entity.dart';
-import 'package:parceragem/app/domain/repositories/i_profession_repository.dart';
-import 'package:parceragem/app/infra/models/profession_model.dart';
+import '../../domain/entities/profession_entity.dart';
+import '../../domain/repositories/i_profession_repository.dart';
+import '../models/profession_model.dart';
 import '../../domain/core/failures/server_failures.dart';
 import 'package:dartz/dartz.dart';
 import '../core/http/ParceragemClient.dart';

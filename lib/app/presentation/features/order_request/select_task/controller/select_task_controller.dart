@@ -1,23 +1,22 @@
 import 'package:get/get.dart';
 
 import '../../../../../domain/core/failures/server_failures.dart';
-import '../../../../../domain/repositories/i_section_repository.dart';
+import '../../../../../domain/repositories/i_task_repository.dart';
 
-class SelectSectionController extends GetxController with StateMixin {
-  final ISectionRepository repository;
+class SelectTaskController extends GetxController with StateMixin {
+  final ITaskRepository repository;
 
-  SelectSectionController(this.repository);
+  SelectTaskController(this.repository);
 
   @override
   void onInit() {
     super.onInit();
-    findSections();
   }
 
-  Future<void> findSections() async {
+  Future<void> findTasks(String id) async {
     change([], status: RxStatus.loading());
     try {
-      final result = await repository.getSections();
+      final result = await repository.getTasks(id);
       result.fold((l) {
         switch (l) {
           case ServerFailures.notFound:

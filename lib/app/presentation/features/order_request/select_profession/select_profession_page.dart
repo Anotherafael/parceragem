@@ -20,7 +20,12 @@ class SelectProfessionPage extends GetView<SelectProfessionController> {
               return Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(
+                      "/order-request/tasks",
+                      parameters: {"id": state[index].id},
+                    );
+                  },
                   child: SizedBox(
                       height: 50,
                       child: DecoratedBox(
