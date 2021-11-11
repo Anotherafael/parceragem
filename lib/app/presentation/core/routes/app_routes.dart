@@ -1,20 +1,21 @@
 import 'package:get/get.dart';
-import 'package:parceragem/app/presentation/core/bindings/home_bindings.dart';
-import 'package:parceragem/app/presentation/core/bindings/professions_filter_bindings.dart';
-import 'package:parceragem/app/presentation/core/bindings/section_filter_bindings.dart';
-import 'package:parceragem/app/presentation/features/orders/pages/orders_listing.dart';
-import 'package:parceragem/app/presentation/features/orders/pages/profession_filter.dart';
-import 'package:parceragem/app/presentation/features/orders/pages/section_filter.dart';
-import '../../features/home/home_client.dart';
-import '../../features/home/home_page.dart';
-import '../../features/home/home_professional.dart';
-import '../../features/home/search.dart';
+
+import '../../features/home/home_client/bindings/home_bindings.dart';
+import '../../features/home/home_client/home_client.dart';
+import '../../features/home/home_professional/home_professional.dart';
+import '../../features/home/select_provider_page.dart';
+import '../../features/my_request/search.dart';
+import '../../features/order_request/select_profession/bindings/select_profession_bindings.dart';
+import '../../features/order_request/select_profession/select_profession_page.dart';
+import '../../features/order_request/select_professional/create_order_page.dart';
+import '../../features/order_request/select_section/bindings/select_section_bindings.dart';
+import '../../features/order_request/select_section/select_section_page.dart';
 
 class AppRoutes {
   static List<GetPage> get pages => [
         GetPage(
           name: "/",
-          page: () => const HomePage(),
+          page: () => const SelectProviderPage(),
         ),
         GetPage(
           name: "/homeclient",
@@ -28,7 +29,7 @@ class AppRoutes {
         ),
         GetPage(
           name: "/search",
-          page: () => const Search(),
+          page: () => const MyRequestPage(),
         ),
         GetPage(
           name: "/orderlisting",
@@ -36,13 +37,13 @@ class AppRoutes {
         ),
         GetPage(
           name: "/sectionlisting",
-          page: () => SectionFilter(),
-          binding: SectionFilterBindings(),
+          page: () => SelectSectionPage(),
+          binding: SelectSectionBindings(),
         ),
         GetPage(
           name: "/professionfilter",
-          page: () => ProfessionFilter(),
-          binding: ProfessionFilterBindings(),
+          page: () => SelectProfessionPage(),
+          binding: SelectProfessionBindings(),
         ),
         // GetPage(
         //   name: "/taskfilter/:sectionId",

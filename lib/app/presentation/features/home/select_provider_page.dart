@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'home_client.dart';
-import 'home_professional.dart';
-import '../../shared/theme/AppFonts.dart';
+import '../../shared/theme/app_typography.dart';
+import 'home_client/home_client.dart';
+import 'home_professional/home_professional.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class SelectProviderPage extends StatefulWidget {
+  const SelectProviderPage({Key? key}) : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState();
+  _SelectProviderPageState createState() => _SelectProviderPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SelectProviderPageState extends State<SelectProviderPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                           Icons.account_box,
                           size: 80,
                         )),
-                    Text("Sou cliente", style: AppFonts.normalPrimary)
+                    Text("Sou cliente", style: AppTypography.normalPrimary)
                   ],
                 ),
                 Column(
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                                   builder: (_) => HomeProfessional()));
                         },
                         child: Icon(Icons.badge, size: 80)),
-                    Text("Sou Funcionário", style: AppFonts.normalPrimary)
+                    Text("Sou Funcionário", style: AppTypography.normalPrimary)
                   ],
                 )
               ],

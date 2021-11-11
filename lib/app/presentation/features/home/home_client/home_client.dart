@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../shared/components/layout.dart';
+
+import '../../../shared/components/layout.dart';
 
 class HomeClient extends StatefulWidget {
   const HomeClient({Key? key}) : super(key: key);

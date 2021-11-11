@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../mock/Task.dart';
 import '../../../shared/components/layout.dart';
-import '../../../shared/theme/AppColors.dart';
-import '../../../shared/theme/AppFonts.dart';
+import '../../../shared/theme/app_colors.dart';
+import '../../../shared/theme/app_typography.dart';
 
 class TaskFilter extends StatefulWidget {
   const TaskFilter({Key? key}) : super(key: key);
@@ -44,7 +44,7 @@ class _TaskFilterState extends State<TaskFilter> {
                   child: Center(
                     child: Text(
                       tasksList[index]['name'],
-                      style: AppFonts.normalPrimaryWhite,
+                      style: AppTypography.normalPrimaryWhite,
                     ),
                   ),
                 ),

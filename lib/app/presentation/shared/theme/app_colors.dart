@@ -6,6 +6,7 @@ Color fromHex(String hexString) {
   buffer.write(hexString.replaceFirst('#', ''));
   return Color(int.parse(buffer.toString(), radix: 16));
 }
+
 class AppColors {
   // Light Color
   static Color colorLightPrimary = fromHex("#2A4494");

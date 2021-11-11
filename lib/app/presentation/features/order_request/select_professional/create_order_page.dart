@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import '../../../../mock/Order.dart';
 import '../../../../mock/professional.dart';
 import '../../../shared/components/layout.dart';
-import '../../../shared/theme/AppColors.dart';
-import '../../../shared/theme/AppFonts.dart';
+import '../../../shared/theme/app_colors.dart';
+import '../../../shared/theme/app_typography.dart';
 
 class OrderListing extends StatefulWidget {
   const OrderListing({Key? key}) : super(key: key);
@@ -67,7 +67,7 @@ class _OrderListingState extends State<OrderListing> {
                                         ordersList[index]
                                             ['professional_id'])['name']
                                     .toString(),
-                                style: AppFonts.normalPrimaryWhite,
+                                style: AppTypography.normalPrimaryWhite,
                               ),
                             ],
                           ),
@@ -75,15 +75,15 @@ class _OrderListingState extends State<OrderListing> {
                             children: [
                               Text(
                                 ordersList[index]['date'].toString(),
-                                style: AppFonts.normalPrimaryWhite,
+                                style: AppTypography.normalPrimaryWhite,
                               ),
                               Text(
                                 " : ",
-                                style: AppFonts.normalPrimaryWhite,
+                                style: AppTypography.normalPrimaryWhite,
                               ),
                               Text(
                                 ordersList[index]['hour'].toString(),
-                                style: AppFonts.normalPrimaryWhite,
+                                style: AppTypography.normalPrimaryWhite,
                               ),
                             ],
                           ),

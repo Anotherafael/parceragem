@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import '../../shared/components/layout.dart';
-import '../../shared/theme/AppFonts.dart';
+import '../../shared/theme/app_typography.dart';
 
-class Search extends StatefulWidget {
-  const Search({Key? key}) : super(key: key);
+class MyRequestPage extends StatefulWidget {
+  const MyRequestPage({Key? key}) : super(key: key);
 
   @override
-  _SearchState createState() => _SearchState();
+  _MyRequestPageState createState() => _MyRequestPageState();
 }
 
-class _SearchState extends State<Search> {
+class _MyRequestPageState extends State<MyRequestPage> {
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -26,7 +26,7 @@ class _SearchState extends State<Search> {
                       color: Colors.white,
                     ),
                     title: Text("Work in progress",
-                        style: AppFonts.normalPrimaryWhite))
+                        style: AppTypography.normalPrimaryWhite))
               ]),
             ),
           )

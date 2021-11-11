@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'widgets/widgets.dart';
-import '../theme/AppColors.dart';
+
+import '../theme/app_colors.dart';
+import 'widgets/custom_app_bar.dart';
 
 class Layout extends StatefulWidget {
   const Layout({Key? key, required this.body, this.floatingActionButton})

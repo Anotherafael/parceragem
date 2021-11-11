@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 import 'package:parceragem/app/domain/repositories/i_profession_repository.dart';
-import '../../../../domain/core/failures/server_failures.dart';
+import '../../../../../domain/core/failures/server_failures.dart';
 
-class ProfessionFilterController extends GetxController with StateMixin {
+class SelectProfessionController extends GetxController with StateMixin {
   final IProfessionRepository repository;
 
-  ProfessionFilterController(this.repository);
+  SelectProfessionController(this.repository);
 
   @override
   void onInit() {

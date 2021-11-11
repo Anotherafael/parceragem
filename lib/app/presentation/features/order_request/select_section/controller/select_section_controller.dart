@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import '../../../../domain/core/failures/server_failures.dart';
-import '../../../../domain/repositories/i_section_repository.dart';
+import '../../../../../domain/core/failures/server_failures.dart';
+import '../../../../../domain/repositories/i_section_repository.dart';
 
 class SectionFilterController extends GetxController with StateMixin {
   final ISectionRepository repository;
