@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'section_model.dart';
-
 import '../../domain/entities/task_entity.dart';
 import 'profession_model.dart';
 

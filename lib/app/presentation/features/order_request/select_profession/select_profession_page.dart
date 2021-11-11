@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../shared/components/layout.dart';
 import '../../../shared/theme/app_colors.dart';
-import 'package:parceragem/app/presentation/shared/theme/app_typography.dart';
+import '../../../shared/theme/app_typography.dart';
 
 import 'controller/select_profession_controller.dart';
 

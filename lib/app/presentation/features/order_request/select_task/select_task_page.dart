@@ -20,7 +20,14 @@ class SelectTaskPage extends GetView<SelectTaskController> {
               return Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(
+                      '/order-request/professionals',
+                      parameters: {
+                        "id": state[index].id,
+                      },
+                    );
+                  },
                   child: SizedBox(
                       height: 50,
                       child: DecoratedBox(

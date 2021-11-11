@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../shared/theme/app_typography.dart';
-import 'home_client/home_client.dart';
-import 'home_professional/home_professional.dart';
 
 class SelectProviderPage extends StatefulWidget {
   const SelectProviderPage({Key? key}) : super(key: key);
@@ -43,7 +42,7 @@ class _SelectProviderPageState extends State<SelectProviderPage> {
                         style: ElevatedButton.styleFrom(
                             minimumSize: Size(100, 100)),
                         onPressed: () {
-                          Get.toNamed('/home/professional');
+                          Get.toNamed('/order-request/professionals');
                         },
                         child: Icon(Icons.badge, size: 80)),
                     Text("Sou Funcionário", style: AppTypography.normalPrimary)
