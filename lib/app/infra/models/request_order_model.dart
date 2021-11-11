@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:parceragem/app/domain/entities/request_order_entity.dart';
-import 'package:parceragem/app/infra/models/order_model.dart';
-import 'package:parceragem/app/infra/models/user_model.dart';
+import '../../domain/entities/request_order_entity.dart';
+import 'order_model.dart';
+import 'user_model.dart';
 
 class RequestOrderModel {
   final int id;

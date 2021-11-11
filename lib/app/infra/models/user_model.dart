@@ -1,16 +1,16 @@
 import 'dart:convert';
 
-import 'package:parceragem/app/domain/entities/user_entity.dart';
+import '../../domain/entities/user_entity.dart';
 
 class UserModel {
-  final String uuid;
+  final String id;
   final String name;
   final String email;
   final String documentId;
   final String phone;
 
   UserModel({
-    required this.uuid,
+    required this.id,
     required this.name,
     required this.email,
     required this.documentId,
@@ -19,7 +19,7 @@ class UserModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'uuid': uuid,
+      'id': id,
       'name': name,
       'email': email,
       'documentId': documentId,
@@ -29,7 +29,7 @@ class UserModel {
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      uuid: map['uuid'],
+      id: map['id'],
       name: map['name'],
       email: map['email'],
       documentId: map['document_id'],
@@ -38,7 +38,7 @@ class UserModel {
   }
 
   UserEntity toEntity() => UserEntity(
-        uuid: uuid,
+        id: id,
         name: name,
         email: email,
         documentId: documentId,
@@ -47,7 +47,7 @@ class UserModel {
 
   factory UserModel.fromEntity(UserEntity entity) {
     return UserModel(
-      uuid: entity.uuid,
+      id: entity.id,
       name: entity.name,
       email: entity.email,
       documentId: entity.documentId,

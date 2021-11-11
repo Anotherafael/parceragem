@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:parceragem/app/domain/entities/order_entity.dart';
-import 'package:parceragem/app/domain/entities/user_entity.dart';
+import 'order_entity.dart';
+import 'user_entity.dart';
 
 class RequestOrderEntity extends Equatable {
   final int id;

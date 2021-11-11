@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:parceragem/app/presentation/shared/components/layout.dart';
-import 'package:parceragem/app/presentation/shared/theme/AppFonts.dart';
+import '../../shared/components/layout.dart';
+import '../../shared/theme/AppFonts.dart';
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -21,12 +21,12 @@ class _SearchState extends State<Search> {
               color: Colors.red,
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                 ListTile(
-                  leading: Icon(
-                    Icons.warning,
-                    color: Colors.white,
-                  ),
-                  title: Text("Work in progress", style: AppFonts.normalPrimaryWhite)
-                )
+                    leading: Icon(
+                      Icons.warning,
+                      color: Colors.white,
+                    ),
+                    title: Text("Work in progress",
+                        style: AppFonts.normalPrimaryWhite))
               ]),
             ),
           )

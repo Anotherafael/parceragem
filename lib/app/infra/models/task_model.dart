@@ -1,22 +1,22 @@
 import 'dart:convert';
 
-import 'package:parceragem/app/domain/entities/task_entity.dart';
-import 'package:parceragem/app/infra/models/profession_model.dart';
+import '../../domain/entities/task_entity.dart';
+import 'profession_model.dart';
 
 class TaskModel {
-  final String uuid;
+  final String id;
   final String name;
   final ProfessionModel profession;
 
   TaskModel({
-    required this.uuid,
+    required this.id,
     required this.name,
     required this.profession,
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'uuid': uuid,
+      'id': id,
       'name': name,
       'profession': profession,
     };
@@ -24,21 +24,21 @@ class TaskModel {
 
   factory TaskModel.fromMap(Map<String, dynamic> map) {
     return TaskModel(
-      uuid: map['uuid'] ?? '',
+      id: map['id'] ?? '',
       name: map['name'] ?? '',
       profession: map['profession'] ?? '',
     );
   }
 
   TaskEntity toEntity() => TaskEntity(
-        uuid: uuid,
+        id: id,
         name: name,
         profession: profession.toEntity(),
       );
 
   factory TaskModel.fromEntity(TaskEntity entity) {
     return TaskModel(
-      uuid: entity.uuid,
+      id: entity.id,
       name: entity.name,
       profession: ProfessionModel.fromEntity(entity.profession),
     );

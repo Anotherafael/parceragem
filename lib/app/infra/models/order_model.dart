@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:ffi';
 
-import 'package:parceragem/app/domain/entities/order_entity.dart';
-import 'package:parceragem/app/infra/models/professional_model.dart';
-import 'package:parceragem/app/infra/models/task_model.dart';
+import '../../domain/entities/order_entity.dart';
+import 'professional_model.dart';
+import 'task_model.dart';
 
 class OrderModel {
-  final String uuid;
+  final String id;
   final DateTime date;
   final Float price;
   final String status;
@@ -14,7 +14,7 @@ class OrderModel {
   final ProfessionalModel professional;
 
   OrderModel({
-    required this.uuid,
+    required this.id,
     required this.date,
     required this.price,
     required this.status,
@@ -24,7 +24,7 @@ class OrderModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'uuid': uuid,
+      'id': id,
       'date': date,
       'price': price,
       'status': status,
@@ -35,7 +35,7 @@ class OrderModel {
 
   factory OrderModel.fromMap(Map<String, dynamic> map) {
     return OrderModel(
-      uuid: map['uuid'],
+      id: map['id'],
       date: map['date'],
       price: map['price'],
       status: map['status'],
@@ -46,7 +46,7 @@ class OrderModel {
 
   factory OrderModel.fromEntity(OrderEntity entity) {
     return OrderModel(
-      uuid: entity.uuid,
+      id: entity.id,
       date: entity.date,
       price: entity.price,
       status: entity.status,
@@ -56,7 +56,7 @@ class OrderModel {
   }
 
   OrderEntity toEntity() => OrderEntity(
-        uuid: uuid,
+        id: id,
         date: date,
         price: price,
         status: status,

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:parceragem/app/presentation/features/home/search.dart';
-import 'package:parceragem/app/presentation/shared/components/widgets/widgets.dart';
-import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
+import '../../features/home/search.dart';
+import 'widgets/widgets.dart';
+import '../theme/AppColors.dart';
 
 import '../../features/home/home_client.dart';
 
 class Layout extends StatefulWidget {
-  const Layout({Key? key, required this.body, this.floatingActionButton}) : super(key: key);
+  const Layout({Key? key, required this.body, this.floatingActionButton})
+      : super(key: key);
   final Widget body;
   final FloatingActionButton? floatingActionButton;
   @override
@@ -35,12 +36,14 @@ class _LayoutState extends State<Layout> {
       ),
     );
   }
+
   void onTabTapped(int i) {
-    switch(i){
-      case 0: 
-        Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeClient()));
+    switch (i) {
+      case 0:
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (_) => HomeClient()));
         break;
-        case 1: 
+      case 1:
         Navigator.of(context).push(MaterialPageRoute(builder: (_) => Search()));
     }
   }

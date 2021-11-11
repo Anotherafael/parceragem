@@ -6,7 +6,7 @@ import 'professional_entity.dart';
 import 'task_entity.dart';
 
 class OrderEntity extends Equatable {
-  final String uuid;
+  final String id;
   final DateTime date;
   final Float price;
   final String status;
@@ -14,7 +14,7 @@ class OrderEntity extends Equatable {
   final ProfessionalEntity professional;
 
   OrderEntity({
-    required this.uuid,
+    required this.id,
     required this.date,
     required this.price,
     required this.status,
@@ -24,7 +24,7 @@ class OrderEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-        uuid,
+        id,
         date,
         price,
         status,

@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:parceragem/app/domain/repositories/i_section_repository.dart';
-import 'package:parceragem/app/infra/core/http/ParceragemClient.dart';
-import 'package:parceragem/app/infra/repositories/section_repository_impl.dart';
+import '../../domain/repositories/i_section_repository.dart';
+import '../../infra/core/http/ParceragemClient.dart';
+import '../../infra/repositories/section_repository_impl.dart';
 
 import 'get_sections_controller.dart';
 

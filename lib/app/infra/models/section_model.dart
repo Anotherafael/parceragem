@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:parceragem/app/domain/entities/section_entity.dart';
+import '../../domain/entities/section_entity.dart';
 
 class SectionModel {
   String id;

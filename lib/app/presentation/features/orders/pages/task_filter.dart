@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:parceragem/app/mock/Task.dart';
-import 'package:parceragem/app/presentation/shared/components/layout.dart';
-import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
-import 'package:parceragem/app/presentation/shared/theme/AppFonts.dart';
+import '../../../../mock/Task.dart';
+import '../../../shared/components/layout.dart';
+import '../../../shared/theme/AppColors.dart';
+import '../../../shared/theme/AppFonts.dart';
 
 class TaskFilter extends StatefulWidget {
   const TaskFilter({Key? key, required this.professionId}) : super(key: key);

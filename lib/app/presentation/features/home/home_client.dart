@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:parceragem/app/presentation/features/orders/section_filter.dart';
-import 'package:parceragem/app/presentation/shared/components/layout.dart';
+import 'package:get/get.dart';
+import 'package:parceragem/app/presentation/features/orders/pages/section_filter.dart';
+import '../../shared/components/layout.dart';
 
 class HomeClient extends StatefulWidget {
   const HomeClient({Key? key}) : super(key: key);
@@ -18,12 +19,13 @@ class _HomeClientState extends State<HomeClient> {
           Padding(
             padding: EdgeInsets.fromLTRB(15, 10, 15, 0),
             child: GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>SectionFilter()));
+              onTap: () {
+                Get.toNamed('/sectionlisting');
               },
               child: Card(
                 color: Colors.blueAccent,
-                child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                child:
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
                     leading: Icon(
                       Icons.calendar_today_rounded,

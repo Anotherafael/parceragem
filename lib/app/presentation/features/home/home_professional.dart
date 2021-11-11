@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:parceragem/app/presentation/shared/components/layout.dart';
+import '../../shared/components/layout.dart';
 
 class HomeProfessional extends StatefulWidget {
   const HomeProfessional({Key? key}) : super(key: key);
@@ -13,9 +13,7 @@ class _HomeProfessionalState extends State<HomeProfessional> {
   Widget build(BuildContext context) {
     return Layout(
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-
-        },
+        onPressed: () {},
         child: Icon(Icons.add),
       ),
       body: Column(

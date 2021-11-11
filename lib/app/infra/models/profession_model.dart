@@ -1,22 +1,22 @@
 import 'dart:convert';
 
-import 'package:parceragem/app/domain/entities/profession_entity.dart';
-import 'package:parceragem/app/infra/models/section_model.dart';
+import '../../domain/entities/profession_entity.dart';
+import 'section_model.dart';
 
 class ProfessionModel {
-  final String uuid;
+  final String id;
   final String name;
   final SectionModel section;
 
   ProfessionModel({
-    required this.uuid,
+    required this.id,
     required this.name,
     required this.section,
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'uuid': uuid,
+      'id': id,
       'name': name,
       'section': section,
     };
@@ -24,21 +24,21 @@ class ProfessionModel {
 
   factory ProfessionModel.fromMap(Map<String, dynamic> map) {
     return ProfessionModel(
-      uuid: map['uuid'] ?? '',
+      id: map['id'] ?? '',
       name: map['name'] ?? '',
-      section: map['section'] ?? '',
+      section: SectionModel.fromMap(map['section']),
     );
   }
 
   ProfessionEntity toEntity() => ProfessionEntity(
-        uuid: uuid,
+        id: id,
         name: name,
         section: section.toEntity(),
       );
 
   factory ProfessionModel.fromEntity(ProfessionEntity entity) {
     return ProfessionModel(
-      uuid: entity.uuid,
+      id: entity.id,
       name: entity.name,
       section: SectionModel.fromEntity(entity.section),
     );

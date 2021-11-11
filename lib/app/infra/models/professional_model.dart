@@ -1,16 +1,16 @@
 import 'dart:convert';
 
-import 'package:parceragem/app/domain/entities/professional_entity.dart';
+import '../../domain/entities/professional_entity.dart';
 
 class ProfessionalModel {
-  final String uuid;
+  final String id;
   final String name;
   final String email;
   final String documentId;
   final String phone;
 
   ProfessionalModel({
-    required this.uuid,
+    required this.id,
     required this.name,
     required this.email,
     required this.documentId,
@@ -19,7 +19,7 @@ class ProfessionalModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'uuid': uuid,
+      'id': id,
       'name': name,
       'email': email,
       'documentId': documentId,
@@ -29,7 +29,7 @@ class ProfessionalModel {
 
   factory ProfessionalModel.fromMap(Map<String, dynamic> map) {
     return ProfessionalModel(
-      uuid: map['uuid'],
+      id: map['id'],
       name: map['name'],
       email: map['email'],
       documentId: map['document_id'],
@@ -38,7 +38,7 @@ class ProfessionalModel {
   }
 
   ProfessionalEntity toEntity() => ProfessionalEntity(
-        uuid: uuid,
+        id: id,
         name: name,
         email: email,
         documentId: documentId,
@@ -47,7 +47,7 @@ class ProfessionalModel {
 
   factory ProfessionalModel.fromEntity(ProfessionalEntity entity) {
     return ProfessionalModel(
-      uuid: entity.uuid,
+      id: entity.id,
       name: entity.name,
       email: entity.email,
       documentId: entity.documentId,

@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:parceragem/app/domain/entities/section_entity.dart';
-import 'package:parceragem/app/domain/core/failures/server_failures.dart';
+import '../../domain/entities/section_entity.dart';
+import '../../domain/core/failures/server_failures.dart';
 import 'package:dartz/dartz.dart';
-import 'package:parceragem/app/domain/repositories/i_section_repository.dart';
-import 'package:parceragem/app/infra/core/http/ParceragemClient.dart';
-import 'package:parceragem/app/infra/models/section_model.dart';
+import '../../domain/repositories/i_section_repository.dart';
+import '../core/http/ParceragemClient.dart';
+import '../models/section_model.dart';
 
 class SectionRepositoryImpl extends ISectionRepository {
   final ParceragemClient client;

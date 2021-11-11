@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../infra/core/http/ParceragemClient.dart';
+import 'package:parceragem/app/infra/core/http/ParceragemClient.dart';
 
 class HomeBindinds implements Bindings {
   @override

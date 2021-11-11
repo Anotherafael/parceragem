@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
-import 'package:parceragem/app/presentation/shared/theme/AppColors.dart';
+
+import '../../theme/AppColors.dart';
 
 class CustomAppbar extends PreferredSize {
   CustomAppbar()
