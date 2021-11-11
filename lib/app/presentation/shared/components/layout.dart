@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../features/home/search.dart';
+import 'package:get/get.dart';
 import 'widgets/widgets.dart';
 import '../theme/AppColors.dart';
-
-import '../../features/home/home_client.dart';
 
 class Layout extends StatefulWidget {
   const Layout({Key? key, required this.body, this.floatingActionButton})
@@ -40,11 +38,10 @@ class _LayoutState extends State<Layout> {
   void onTabTapped(int i) {
     switch (i) {
       case 0:
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => HomeClient()));
+        Get.toNamed("/homeclient");
         break;
       case 1:
-        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Search()));
+        Get.toNamed("/search");
     }
   }
 }

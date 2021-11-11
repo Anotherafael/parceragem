@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:parceragem/app/presentation/core/routes/app_routes.dart';
-
 import 'app/presentation/features/home/home_page.dart';
 
 void main() {
@@ -21,25 +20,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-// class MyApp extends StatelessWidget {
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return GetMaterialApp(
-//       getPages: [
-//         GetPage(
-//           name: '/',
-//           page: () => HomePage(),
-//           binding: HomeBindinds(),
-//           children: [
-//             GetPage(
-//               name: '/get',
-//               page: () => GetSectionsPage(),
-//               binding: GetSectionsBindings(),
-//             ),
-//           ],
-//         )
-//       ],
-//     );
-//   }
-// }

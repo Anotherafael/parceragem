@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:parceragem/app/presentation/features/orders/pages/section_filter.dart';
 import '../../shared/components/layout.dart';
 
 class HomeClient extends StatefulWidget {
