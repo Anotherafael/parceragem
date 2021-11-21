@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
 
-  CustomTextField({required this.hint, required this.prefix, required this.suffix, this.obscure = false,
-    required this.textInputType, required this.onChanged, required this.enabled, required this.controller
+  CustomTextField({this.hint, this.prefix, this.suffix, this.obscure = false,
+    this.textInputType, this.onChanged, this.enabled, this.controller
   });
 
-  final TextEditingController controller;
-  final String hint;
-  final Widget prefix;
-  final Widget suffix;
+  final TextEditingController ? controller;
+  final String? hint;
+  final Widget ?prefix;
+  final Widget? suffix;
   final bool obscure;
-  final TextInputType textInputType;
-  final Function(String) onChanged;
-  final bool enabled;
+  final TextInputType? textInputType;
+  final Function(String) ?onChanged;
+  final bool ? enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(32),
       ),
       padding: prefix != null ? null : const EdgeInsets.only(left: 16),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         obscureText: obscure,
         keyboardType: textInputType,

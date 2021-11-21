@@ -31,50 +31,28 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      TextFormField(
-                        // controller: _loginController.emailTextController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Campo obrigatório.";
-                          } else if (!GetUtils.isEmail(value)) {
-                            return "Campo requer um E-mail válido.";
-                          }
-                          return null;
-                        },
-                        keyboardType: TextInputType.emailAddress,
-                        autofocus: false,
-                        decoration: InputDecoration(
-                          hintText: "E-mail",
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(32.0),
-                          ),
-                        ),
+                      CustomTextField(
+                          hint: 'E-mail',
+                          prefix: Icon(Icons.account_circle),
+                          textInputType: TextInputType.emailAddress,
+                          onChanged: (context){},
+                          enabled: true
                       ),
                       const SizedBox(
                         height: 16,
                       ),
-                      TextFormField(
-                        // controller: _loginController.passwordTextController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Campo obrigatório.";
-                          } else if (value.length < 6) {
-                            return "Campo requer mínimo 6 caracteres.";
-                          }
-                          return null;
-                        },
-                        autofocus: false,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          hintText: "Senha",
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(32.0),
-                          ),
-                        ),
+                      CustomTextField(
+                          hint: 'Senha',
+                          prefix: Icon(Icons.lock),
+                          // obscure: !loginStore.passwordVisible,
+                          // onChanged: loginStore.setPassword,
+                          // enabled: !loginStore.loading,
+                          // suffix: CustomIconButton(
+                          //   radius: 32,
+                          //   iconData: loginStore.passwordVisible ?
+                          //     Icons.visibility_off : Icons.visibility,
+                          //   onTap: loginStore.togglePasswordVisibility,
+                          // ),
                       ),
                       const SizedBox(
                         height: 16,
