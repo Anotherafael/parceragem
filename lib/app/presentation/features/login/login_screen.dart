@@ -11,6 +11,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final String? provider = Get.parameters['provider'];
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -35,24 +36,23 @@ class _LoginScreenState extends State<LoginScreen> {
                           hint: 'E-mail',
                           prefix: Icon(Icons.account_circle),
                           textInputType: TextInputType.emailAddress,
-                          onChanged: (context){},
-                          enabled: true
-                      ),
+                          onChanged: (context) {},
+                          enabled: true),
                       const SizedBox(
                         height: 16,
                       ),
                       CustomTextField(
-                          hint: 'Senha',
-                          prefix: Icon(Icons.lock),
-                          // obscure: !loginStore.passwordVisible,
-                          // onChanged: loginStore.setPassword,
-                          // enabled: !loginStore.loading,
-                          // suffix: CustomIconButton(
-                          //   radius: 32,
-                          //   iconData: loginStore.passwordVisible ?
-                          //     Icons.visibility_off : Icons.visibility,
-                          //   onTap: loginStore.togglePasswordVisibility,
-                          // ),
+                        hint: 'Senha',
+                        prefix: Icon(Icons.lock),
+                        // obscure: !loginStore.passwordVisible,
+                        // onChanged: loginStore.setPassword,
+                        // enabled: !loginStore.loading,
+                        // suffix: CustomIconButton(
+                        //   radius: 32,
+                        //   iconData: loginStore.passwordVisible ?
+                        //     Icons.visibility_off : Icons.visibility,
+                        //   onTap: loginStore.togglePasswordVisibility,
+                        // ),
                       ),
                       const SizedBox(
                         height: 16,
@@ -87,8 +87,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           onPressed: () {
-                            //TODO Verificar
-                            Get.toNamed("/home/clients");
+                            //falta a verificação
+                            switch (provider) {
+                              case "Cliente":
+                                Get.toNamed("/home/clients");
+                                break;
+                              case "Funcionario":
+                                Get.toNamed("/home/professional");
+                                break;
+                            }
                           },
                         ),
                       ),

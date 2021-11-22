@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:parceragem/app/presentation/features/login/bindings/login_bindings.dart';
+import 'package:parceragem/app/presentation/features/login/login_screen.dart';
 import 'package:parceragem/app/presentation/features/order_request/select_order/bindings/select_order_bindings.dart';
 import 'package:parceragem/app/presentation/features/order_request/select_order/select_order_page.dart';
 
@@ -16,6 +18,11 @@ import '../../features/order_request/select_task/select_task_page.dart';
 
 class AppRoutes {
   static List<GetPage> get pages => [
+        GetPage(
+          name: "/login",
+          page: () => LoginScreen(),
+          binding: LoginBindings()
+        ),
         GetPage(
           name: "/",
           page: () => const SelectProviderPage(),
