@@ -27,7 +27,7 @@ class _SelectProviderPageState extends State<SelectProviderPage> {
                         style: ElevatedButton.styleFrom(
                             minimumSize: Size(100, 100)),
                         onPressed: () {
-                          Get.toNamed('/home/client');
+                          Get.toNamed('/login', parameters: {'provider': "Cliente"});
                         },
                         child: Icon(
                           Icons.account_box,
@@ -42,7 +42,7 @@ class _SelectProviderPageState extends State<SelectProviderPage> {
                         style: ElevatedButton.styleFrom(
                             minimumSize: Size(100, 100)),
                         onPressed: () {
-                          Get.toNamed('/order-request/professionals');
+                          Get.toNamed('/login', parameters: {'provider': "Funcionario"});
                         },
                         child: Icon(Icons.badge, size: 80)),
                     Text("Sou Funcionário", style: AppTypography.normalPrimary)
