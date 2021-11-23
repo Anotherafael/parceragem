@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import '../../domain/core/failures/server_failures.dart';
 import '../../domain/entities/task_entity.dart';
 import '../../domain/repositories/i_task_repository.dart';
-import '../core/http/ParceragemClient.dart';
+import '../core/http/parceragem_client.dart';
 import '../models/task_model.dart';
 
 class TaskRepositoryImpl extends ITaskRepository {

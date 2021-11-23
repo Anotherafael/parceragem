@@ -39,6 +39,21 @@ class SelectSectionPage extends GetView<SelectSectionController> {
             },
           );
         },
+        onError: (error) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(error!),
+                TextButton(
+                  onPressed: () => controller.findSections(),
+                  child: Text('Tentar novamente'),
+                )
+              ],
+            ),
+          );
+        },
       ),
     );
   }

@@ -21,6 +21,7 @@ class SelectOrderPage extends GetView<SelectOrderController> {
               return Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: GestureDetector(
+                  onTap: () => Get.toNamed("/home/client"),
                   child: SizedBox(
                     height: 70,
                     child: DecoratedBox(
@@ -81,6 +82,21 @@ class SelectOrderPage extends GetView<SelectOrderController> {
                 ),
               );
             },
+          );
+        },
+        onError: (error) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(error!),
+                TextButton(
+                  onPressed: () => controller.findOrders(id),
+                  child: Text('Tentar novamente'),
+                )
+              ],
+            ),
           );
         },
       ),

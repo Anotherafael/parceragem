@@ -41,6 +41,21 @@ class SelectProfessionPage extends GetView<SelectProfessionController> {
             },
           );
         },
+        onError: (error) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(error!),
+                TextButton(
+                  onPressed: () => controller.findProfessions(id),
+                  child: Text('Tentar novamente'),
+                )
+              ],
+            ),
+          );
+        },
       ),
     );
   }

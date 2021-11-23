@@ -34,7 +34,7 @@ class SelectProfessionController extends GetxController with StateMixin {
       );
     } catch (e) {
       print(e);
-      change([], status: RxStatus.error('Erro ao buscar usuários'));
+      change([], status: RxStatus.error('Erro ao buscar as profissões'));
     }
   }
 }

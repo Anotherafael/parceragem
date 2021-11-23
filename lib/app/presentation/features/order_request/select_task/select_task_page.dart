@@ -43,6 +43,21 @@ class SelectTaskPage extends GetView<SelectTaskController> {
             },
           );
         },
+        onError: (error) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(error!),
+                TextButton(
+                  onPressed: () => controller.findTasks(id),
+                  child: Text('Tentar novamente'),
+                )
+              ],
+            ),
+          );
+        },
       ),
     );
   }

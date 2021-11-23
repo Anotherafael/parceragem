@@ -29,7 +29,7 @@ class SelectTaskController extends GetxController with StateMixin {
       }, (r) => change(r, status: RxStatus.success()));
     } catch (e) {
       print(e);
-      change([], status: RxStatus.error('Erro ao buscar usuários'));
+      change([], status: RxStatus.error('Erro ao buscar os serviços'));
     }
   }
 }

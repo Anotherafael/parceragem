@@ -4,7 +4,7 @@ import '../../domain/repositories/i_profession_repository.dart';
 import '../models/profession_model.dart';
 import '../../domain/core/failures/server_failures.dart';
 import 'package:dartz/dartz.dart';
-import '../core/http/ParceragemClient.dart';
+import '../core/http/parceragem_client.dart';
 
 class ProfessionRepositoryImpl extends IProfessionRepository {
   final ParceragemClient client;

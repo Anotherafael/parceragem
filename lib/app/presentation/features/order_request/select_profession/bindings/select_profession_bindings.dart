@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
 import '../../../../../domain/repositories/i_profession_repository.dart';
-import '../../../../../infra/core/http/ParceragemClient.dart';
+import '../../../../../infra/core/http/parceragem_client.dart';
 import '../../../../../infra/repositories/profession_repository.impl.dart';
 import '../controller/select_profession_controller.dart';
 

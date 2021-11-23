@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
 import '../../../../../domain/repositories/i_section_repository.dart';
-import '../../../../../infra/core/http/ParceragemClient.dart';
+import '../../../../../infra/core/http/parceragem_client.dart';
 import '../../../../../infra/repositories/section_repository_impl.dart';
 import '../controller/select_section_controller.dart';
 
