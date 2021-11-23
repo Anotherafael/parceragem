@@ -19,13 +19,13 @@ import '../../features/order_request/select_task/select_task_page.dart';
 class AppRoutes {
   static List<GetPage> get pages => [
         GetPage(
-          name: "/login",
-          page: () => LoginScreen(),
-          binding: LoginBindings()
-        ),
-        GetPage(
           name: "/",
           page: () => const SelectProviderPage(),
+        ),
+        GetPage(
+          name: "/login",
+          page: () => LoginScreen(),
+          binding: LoginBindings(),
         ),
         GetPage(
           name: "/home/client",
