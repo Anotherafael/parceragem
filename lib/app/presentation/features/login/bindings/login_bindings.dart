@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:parceragem/app/domain/repositories/i_auth_repository.dart';
-import 'package:parceragem/app/infra/core/http/ParceragemClient.dart';
+import 'package:parceragem/app/infra/core/http/parceragem_client.dart';
 import 'package:parceragem/app/presentation/features/login/controller/login_controller.dart';
 
 class LoginBindings implements Bindings {
