@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 
 import '../../../../../domain/core/failures/server_failures.dart';
-import '../../../../../domain/repositories/i_section_repository.dart';
+import '../../../../../domain/repositories/section_repository.dart';
 
 class SelectSectionController extends GetxController with StateMixin {
-  final ISectionRepository repository;
+  final SectionRepository repository;
 
   SelectSectionController(this.repository);
 

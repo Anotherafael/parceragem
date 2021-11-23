@@ -1,15 +1,15 @@
 import 'package:dio/dio.dart';
 import '../../domain/entities/profession_entity.dart';
-import '../../domain/repositories/i_profession_repository.dart';
+import '../../domain/repositories/profession_repository.dart';
 import '../models/profession_model.dart';
 import '../../domain/core/failures/server_failures.dart';
 import 'package:dartz/dartz.dart';
 import '../core/http/parceragem_client.dart';
 
-class ProfessionRepositoryImpl extends IProfessionRepository {
+class IProfessionRepositoryImpl extends ProfessionRepository {
   final ParceragemClient client;
 
-  ProfessionRepositoryImpl(this.client);
+  IProfessionRepositoryImpl(this.client);
 
   @override
   Future<Either<ServerFailures, List<ProfessionEntity>>> getProfessions(

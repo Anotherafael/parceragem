@@ -3,7 +3,7 @@ import 'package:parceragem/app/infra/models/auth_model.dart';
 
 import '../core/failures/server_failures.dart';
 
-abstract class IAuthRepository {
+abstract class AuthRepository {
   Future<Either<ServerFailures, LoginResponseModel>> login(
       LoginRequestModel requestModel);
   Future<Either<ServerFailures, String>> register();

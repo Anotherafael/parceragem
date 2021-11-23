@@ -3,14 +3,14 @@ import 'package:dio/dio.dart';
 
 import '../../domain/core/failures/server_failures.dart';
 import '../../domain/entities/order_entity.dart';
-import '../../domain/repositories/i_order_repository.dart';
+import '../../domain/repositories/order_repository.dart';
 import '../core/http/parceragem_client.dart';
 import '../models/order_model.dart';
 
-class OrderRepositoryImpl extends IOrderRepository {
+class IOrderRepositoryImpl extends OrderRepository {
   final ParceragemClient client;
 
-  OrderRepositoryImpl(this.client);
+  IOrderRepositoryImpl(this.client);
 
   @override
   Future<Either<ServerFailures, String>> addOrder() {

@@ -4,7 +4,7 @@ import 'package:parceragem/app/domain/repositories/auth_repository.dart';
 import 'package:parceragem/app/infra/models/auth_model.dart';
 
 class LoginController extends GetxController with StateMixin {
-  final IAuthRepository repository;
+  final AuthRepository repository;
   LoginController(this.repository);
 
   @override

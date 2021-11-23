@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 
 import '../../../../../domain/core/failures/server_failures.dart';
-import '../../../../../domain/repositories/i_order_repository.dart';
+import '../../../../../domain/repositories/order_repository.dart';
 
 class SelectOrderController extends GetxController with StateMixin {
-  final IOrderRepository repository;
+  final OrderRepository repository;
 
   SelectOrderController(this.repository);
 

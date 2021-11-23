@@ -5,10 +5,10 @@ import 'package:parceragem/app/domain/repositories/auth_repository.dart';
 import 'package:parceragem/app/infra/core/http/parceragem_client.dart';
 import 'package:parceragem/app/infra/models/auth_model.dart';
 
-class AuthRepositoryImpl extends IAuthRepository {
+class IAuthRepositoryImpl extends AuthRepository {
   final ParceragemClient client;
 
-  AuthRepositoryImpl(this.client);
+  IAuthRepositoryImpl(this.client);
 
   @override
   Future<Either<ServerFailures, LoginResponseModel>> login(

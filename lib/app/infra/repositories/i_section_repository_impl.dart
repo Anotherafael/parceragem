@@ -3,14 +3,14 @@ import 'package:dio/dio.dart';
 
 import '../../domain/core/failures/server_failures.dart';
 import '../../domain/entities/section_entity.dart';
-import '../../domain/repositories/i_section_repository.dart';
+import '../../domain/repositories/section_repository.dart';
 import '../core/http/parceragem_client.dart';
 import '../models/section_model.dart';
 
-class SectionRepositoryImpl extends ISectionRepository {
+class ISectionRepositoryImpl extends SectionRepository {
   final ParceragemClient client;
 
-  SectionRepositoryImpl(this.client);
+  ISectionRepositoryImpl(this.client);
 
   @override
   Future<Either<ServerFailures, List<SectionEntity>>> getSections() async {

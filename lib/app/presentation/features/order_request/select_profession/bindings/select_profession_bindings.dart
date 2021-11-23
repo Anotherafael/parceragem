@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
-import '../../../../../domain/repositories/i_profession_repository.dart';
+import '../../../../../domain/repositories/profession_repository.dart';
 import '../../../../../infra/core/http/parceragem_client.dart';
-import '../../../../../infra/repositories/profession_repository.impl.dart';
+import '../../../../../infra/repositories/i_profession_repository.impl.dart';
 import '../controller/select_profession_controller.dart';
 
 class SelectProfessionBindings implements Bindings {
@@ -12,7 +12,7 @@ class SelectProfessionBindings implements Bindings {
   @override
   void dependencies() {
     Get.put(Dio());
-    Get.put<IProfessionRepository>(ProfessionRepositoryImpl(client));
+    Get.put<ProfessionRepository>(IProfessionRepositoryImpl(client));
     Get.put(SelectProfessionController(Get.find()));
   }
 }

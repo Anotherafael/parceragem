@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import '../../../../../domain/repositories/i_profession_repository.dart';
+import '../../../../../domain/repositories/profession_repository.dart';
 import '../../../../../domain/core/failures/server_failures.dart';
 
 class SelectProfessionController extends GetxController with StateMixin {
-  final IProfessionRepository repository;
+  final ProfessionRepository repository;
 
   SelectProfessionController(this.repository);
 

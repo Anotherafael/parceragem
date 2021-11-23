@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import '../core/failures/server_failures.dart';
 import '../entities/order_entity.dart';
 
-abstract class IOrderRepository {
+abstract class OrderRepository {
   Future<Either<ServerFailures, List<OrderEntity>>> getOrders();
   Future<Either<ServerFailures, List<OrderEntity>>> getPendingOrders(String id);
   Future<Either<ServerFailures, List<OrderEntity>>> getOrdersByAuth();

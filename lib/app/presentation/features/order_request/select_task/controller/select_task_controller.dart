@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 
 import '../../../../../domain/core/failures/server_failures.dart';
-import '../../../../../domain/repositories/i_task_repository.dart';
+import '../../../../../domain/repositories/task_repository.dart';
 
 class SelectTaskController extends GetxController with StateMixin {
-  final ITaskRepository repository;
+  final TaskRepository repository;
 
   SelectTaskController(this.repository);
 
