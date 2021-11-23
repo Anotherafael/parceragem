@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:parceragem/app/domain/core/failures/server_failures.dart';
-import 'package:parceragem/app/domain/repositories/i_auth_repository.dart';
+import 'package:parceragem/app/domain/repositories/auth_repository.dart';
 import 'package:parceragem/app/infra/models/auth_model.dart';
 
 class LoginController extends GetxController with StateMixin {

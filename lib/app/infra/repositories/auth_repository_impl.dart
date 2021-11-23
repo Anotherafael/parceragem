@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:parceragem/app/domain/core/failures/server_failures.dart';
-import 'package:parceragem/app/domain/repositories/i_auth_repository.dart';
+import 'package:parceragem/app/domain/repositories/auth_repository.dart';
 import 'package:parceragem/app/infra/core/http/parceragem_client.dart';
 import 'package:parceragem/app/infra/models/auth_model.dart';
 
