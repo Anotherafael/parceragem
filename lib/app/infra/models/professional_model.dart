@@ -5,6 +5,7 @@ import '../../domain/entities/professional_entity.dart';
 class ProfessionalModel {
   final String id;
   final String name;
+  final String password;
   final String email;
   final String documentId;
   final String phone;
@@ -12,6 +13,7 @@ class ProfessionalModel {
   ProfessionalModel({
     required this.id,
     required this.name,
+    required this.password,
     required this.email,
     required this.documentId,
     required this.phone,
@@ -21,6 +23,7 @@ class ProfessionalModel {
     return {
       'id': id,
       'name': name,
+      'password' : password,
       'email': email,
       'documentId': documentId,
       'phone': phone,
@@ -31,6 +34,7 @@ class ProfessionalModel {
     return ProfessionalModel(
       id: map['id'],
       name: map['name'],
+      password: map['password'],
       email: map['email'],
       documentId: map['document_id'],
       phone: map['phone'],
@@ -40,6 +44,7 @@ class ProfessionalModel {
   ProfessionalEntity toEntity() => ProfessionalEntity(
         id: id,
         name: name,
+        password: password,
         email: email,
         documentId: documentId,
         phone: phone,
@@ -49,6 +54,7 @@ class ProfessionalModel {
     return ProfessionalModel(
       id: entity.id,
       name: entity.name,
+      password: entity.password,
       email: entity.email,
       documentId: entity.documentId,
       phone: entity.phone,
