@@ -39,10 +39,10 @@ class _LayoutState extends State<Layout> {
   void onTabTapped(int i) {
     switch (i) {
       case 0:
-        Get.toNamed("/home/client");
+        Get.offAllNamed("/home/client");
         break;
       case 1:
-        Get.toNamed("/");
+        Get.offAllNamed("/");
     }
   }
 }

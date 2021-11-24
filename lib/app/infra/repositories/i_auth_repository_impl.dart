@@ -16,7 +16,7 @@ class IAuthRepositoryImpl extends AuthRepository {
       LoginRequestModel requestModel) async {
     try {
       final response = await client.post(
-        'auth/login/users',
+        'auth/login/${requestModel.provider}',
         data: requestModel.toJson(),
       );
 
