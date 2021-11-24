@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:parceragem/app/presentation/features/login/controller/login_controller.dart';
 import 'package:parceragem/app/presentation/shared/components/widgets/custom_text_field.dart';
+import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
 
 class LoginScreen extends GetView<LoginController> {
   final String? provider = Get.parameters['provider'];
@@ -20,6 +21,7 @@ class LoginScreen extends GetView<LoginController> {
             alignment: Alignment.center,
             margin: const EdgeInsets.all(32),
             child: Card(
+              color: AppColors.colorLightPrimary,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -71,9 +73,9 @@ class LoginScreen extends GetView<LoginController> {
                               MaterialStateProperty.resolveWith<Color>(
                             ((Set<MaterialState> states) {
                               if (states.contains(MaterialState.pressed))
-                                return Theme.of(context).primaryColor;
+                                return AppColors.colorLightSecondary;
                               else
-                                return Theme.of(context).primaryColor.withAlpha(
+                                return AppColors.colorLightSecondary.withAlpha(
                                     100); // Use the component's default.
                             }),
                           ),

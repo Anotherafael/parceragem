@@ -4,6 +4,7 @@ import 'package:parceragem/app/domain/core/failures/server_failures.dart';
 import 'package:parceragem/app/domain/repositories/auth_repository.dart';
 import 'package:parceragem/app/infra/core/http/parceragem_client.dart';
 import 'package:parceragem/app/infra/models/auth_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IAuthRepositoryImpl extends AuthRepository {
   final ParceragemClient client;
@@ -20,8 +21,9 @@ class IAuthRepositoryImpl extends AuthRepository {
       );
 
       final data = response.data!['data'];
+      final prefs = await SharedPreferences.getInstance();
       final dataToJson = LoginResponseModel.fromMap(data);
-
+      prefs.setString("token", data["access_token"]);
       return right(dataToJson);
     } on DioError catch (e) {
       if (e.response!.statusCode == 404) {

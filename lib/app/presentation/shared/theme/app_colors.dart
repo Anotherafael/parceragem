@@ -10,8 +10,8 @@ Color fromHex(String hexString) {
 class AppColors {
   // Light Color
   static Color colorLightPrimary = fromHex("#2A4494");
-  static const Color colorLightSecondary = Color(0x224870);
-  static const Color colorLightCardColors = Color(0x44CFCB);
+  static Color colorLightSecondary = fromHex("#224870");
+  static Color colorLightCardColors = fromHex("#44CFCB");
   // #Light Color
 
 // Light Color

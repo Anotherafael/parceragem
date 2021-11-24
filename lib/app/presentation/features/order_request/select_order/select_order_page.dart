@@ -21,7 +21,6 @@ class SelectOrderPage extends GetView<SelectOrderController> {
               return Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: GestureDetector(
-                  onTap: () => Get.toNamed("/home/client"),
                   child: SizedBox(
                     height: 70,
                     child: DecoratedBox(
@@ -79,6 +78,50 @@ class SelectOrderPage extends GetView<SelectOrderController> {
                       ),
                     ),
                   ),
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                          ),
+                          backgroundColor: AppColors.colorLightPrimary,
+                          title: Text("Você tem certeza?"),
+                          actions: [
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith<Color>(
+                                  ((Set<MaterialState> states) {
+                                    if (states.contains(MaterialState.pressed))
+                                      return AppColors.colorLightCardColors
+                                          .withAlpha(100);
+                                    else
+                                      return AppColors
+                                          .colorLightCardColors; // Use the component's default.
+                                  }),
+                                ),
+                              ),
+                              onPressed: () {
+                                Get.back();
+                              },
+                              child: Text("Não"),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                controller.requestOrder(state[index].id);
+                                Get.back();
+                              },
+                              child: Text("Sim"),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
                 ),
               );
             },

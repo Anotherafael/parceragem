@@ -13,6 +13,6 @@ class SelectOrderBindings implements Bindings {
   void dependencies() {
     Get.put(Dio());
     Get.put<OrderRepository>(IOrderRepositoryImpl(client));
-    Get.put(SelectOrderController(Get.find()));
+    Get.put(SelectOrderController(Get.find(), Get.find()));
   }
 }
