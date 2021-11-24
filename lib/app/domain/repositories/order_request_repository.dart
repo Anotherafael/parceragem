@@ -7,6 +7,6 @@ abstract class OrderRequestRepository {
   Future<Either<ServerFailures, List<OrderEntity>>> getOrderRequestsByUser();
   Future<Either<ServerFailures, List<OrderEntity>>>
       getOrderRequestsByProfessional();
-  Future<Either<ServerFailures, String>> addOrderRequest(String id);
+  Future<Either<ServerFailures, Unit>> addOrderRequest(String id);
   Future<Either<ServerFailures, String>> cancelOrderRequest();
 }

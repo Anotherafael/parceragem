@@ -113,7 +113,7 @@ class SelectOrderPage extends GetView<SelectOrderController> {
                             ElevatedButton(
                               onPressed: () {
                                 controller.requestOrder(state[index].id);
-                                Get.back();
+                                Get.offAllNamed("/home/client");
                               },
                               child: Text("Sim"),
                             ),

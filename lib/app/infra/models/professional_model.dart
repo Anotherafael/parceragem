@@ -23,7 +23,7 @@ class ProfessionalModel {
     return {
       'id': id,
       'name': name,
-      'password' : password,
+      'password': password,
       'email': email,
       'documentId': documentId,
       'phone': phone,
@@ -34,7 +34,7 @@ class ProfessionalModel {
     return ProfessionalModel(
       id: map['id'],
       name: map['name'],
-      password: map['password'],
+      password: "sem senha bro",
       email: map['email'],
       documentId: map['document_id'],
       phone: map['phone'],

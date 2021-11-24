@@ -5,21 +5,17 @@ import 'package:dartz/dartz.dart';
 import 'package:parceragem/app/domain/repositories/order_request_repository.dart';
 import 'package:parceragem/app/infra/core/http/parceragem_client.dart';
 
-class IOrderRquestRepository extends OrderRequestRepository{
+class IOrderRequestRepositoryImpl extends OrderRequestRepository {
   final ParceragemClient client;
 
-  IOrderRquestRepository(this.client);
+  IOrderRequestRepositoryImpl(this.client);
   @override
-  Future<Either<ServerFailures, String>> addOrderRequest(String id) async {
+  Future<Either<ServerFailures, Unit>> addOrderRequest(String id) async {
     try {
-      final response = await client.post(
-        "/transaction/request-order",
-        data: {
-          "order_id": id
-        }
-      );
-      final data = response.data!["status"];
-      return right("");
+      final response = await client
+          .post("/transaction/request-order", data: {"order_id": id});
+
+      return right(unit);
     } on DioError catch (e) {
       if (e.response!.statusCode == 404) {
         return left(ServerFailures.notFound);
@@ -35,7 +31,8 @@ class IOrderRquestRepository extends OrderRequestRepository{
   }
 
   @override
-  Future<Either<ServerFailures, List<OrderEntity>>> getOrderRequestsByProfessional() {
+  Future<Either<ServerFailures, List<OrderEntity>>>
+      getOrderRequestsByProfessional() {
     // TODO: implement getOrderRequestsByProfessional
     throw UnimplementedError();
   }
@@ -45,5 +42,4 @@ class IOrderRquestRepository extends OrderRequestRepository{
     // TODO: implement getOrderRequestsByUser
     throw UnimplementedError();
   }
-
 }

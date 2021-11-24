@@ -14,7 +14,7 @@ class SelectOrderController extends GetxController with StateMixin {
     super.onInit();
   }
 
-  Future<void> requestOrder(String id) async{
+  Future<void> requestOrder(String id) async {
     change([], status: RxStatus.loading());
     try {
       final result = await repo.addOrderRequest(id);
@@ -27,10 +27,10 @@ class SelectOrderController extends GetxController with StateMixin {
             Get.defaultDialog(title: 'Server Error');
             break;
         }
-      }, (r) => change(r, status: RxStatus.success()));
+      }, (_) => change([]));
     } catch (e) {
       print(e);
-      change([], status: RxStatus.error('Erro ao buscar os profissionais'));
+      change([], status: RxStatus.error('Erro ao requisitar o serviço'));
     }
   }
 
