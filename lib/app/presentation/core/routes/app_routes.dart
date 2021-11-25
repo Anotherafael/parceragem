@@ -3,6 +3,8 @@ import 'package:parceragem/app/presentation/features/login/bindings/login_bindin
 import 'package:parceragem/app/presentation/features/login/login_screen.dart';
 import 'package:parceragem/app/presentation/features/order_request/select_order/bindings/select_order_bindings.dart';
 import 'package:parceragem/app/presentation/features/order_request/select_order/select_order_page.dart';
+import 'package:parceragem/app/presentation/features/register/bindings/register_bindings.dart';
+import 'package:parceragem/app/presentation/features/register/register_screen.dart';
 
 import '../../features/home/home_client/bindings/home_bindings.dart';
 import '../../features/home/home_client/home_client.dart';
@@ -26,6 +28,11 @@ class AppRoutes {
           name: "/login",
           page: () => LoginScreen(),
           binding: LoginBindings(),
+        ),
+        GetPage(
+          name: "/register", 
+          page: () => RegisterScreen(),
+          binding: RegisterBindings(),
         ),
         GetPage(
           name: "/home/client",
