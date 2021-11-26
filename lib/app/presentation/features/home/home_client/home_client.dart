@@ -49,6 +49,7 @@ class _HomeClientState extends State<HomeClient> {
                         angle: 50,
                         child: Text(
                           "Agende\nserviços!",
+                          textAlign: TextAlign.center,
                           style: GoogleFonts.montserrat(
                               fontSize: 32, color: AppColors.whiteColor),
                         ),

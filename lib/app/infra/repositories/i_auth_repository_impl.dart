@@ -13,23 +13,26 @@ class IAuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<Either<ServerFailures, LoginResponseModel>> login(
-      LoginRequestModel requestModel) async {
+    LoginRequestModel requestModel,
+  ) async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setString("provider", requestModel.provider);
       final response = await client.post(
         'auth/login/${requestModel.provider}',
         data: requestModel.toJson(),
       );
       final data = response.data!['data'];
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString("provider", requestModel.provider);
       final dataToJson = LoginResponseModel.fromMap(data);
       prefs.setString("token", data["access_token"]);
       if (requestModel.provider == 'professionals')
-        prefs.setString("profession", data['user']['professions']['id']);
+        prefs.setString("profession", data['user']['professions'][0]['id']);
       else
         prefs.setString("profession", "0");
       return right(dataToJson);
     } on DioError catch (e) {
+      final prefs = await SharedPreferences.getInstance();
+      prefs.reload();
       if (e.response!.statusCode == 404) {
         return left(ServerFailures.notFound);
       }

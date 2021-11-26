@@ -50,7 +50,8 @@ class _HomeProfessionalState extends State<HomeProfessional> {
                       Transform.rotate(
                         angle: 50,
                         child: Text(
-                          "Agende\nserviços!",
+                          "Meus\nserviços!",
+                          textAlign: TextAlign.center,
                           style: GoogleFonts.montserrat(
                               fontSize: 32, color: AppColors.whiteColor),
                         ),

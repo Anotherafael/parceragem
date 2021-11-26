@@ -11,23 +11,51 @@ class MyOrdersPage extends GetView<MyOrdersController> {
   @override
   Widget build(BuildContext context) {
     return Layout(
-      body: controller.obx(
-        (state) {
-          return ListView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-            itemCount: state.length,
-            itemBuilder: (context, index) {
-              return cardItem(
-                state[index].task.profession.section.name,
-                state[index].task.profession.name,
-                state[index].task.name,
-                DateFormat('dd-MM-yyyy').format(state[index].date),
-                state[index].hour,
-                state[index].price.toString(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.add,
+        ),
+      ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(Icons.arrow_back),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 16),
+                child: Text(
+                  'Meus Serviços',
+                  style: AppTypography.titlePage,
+                ),
+              ),
+            ],
+          ),
+          controller.obx(
+            (state) {
+              return ListView.builder(
+                shrinkWrap: true,
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+                itemCount: state.length,
+                itemBuilder: (context, index) {
+                  return cardItem(
+                    state[index].task.profession.section.name,
+                    state[index].task.profession.name,
+                    state[index].task.name,
+                    DateFormat('dd-MM-yyyy').format(state[index].date),
+                    state[index].hour,
+                    state[index].price.toString(),
+                  );
+                },
               );
             },
-          );
-        },
+          ),
+        ],
       ),
     );
   }
