@@ -5,6 +5,7 @@ import 'package:parceragem/app/domain/repositories/auth_repository.dart';
 import 'package:parceragem/app/mock/profession.dart';
 import 'package:parceragem/app/presentation/features/create_order/controller/create_order_controller.dart';
 import 'package:parceragem/app/presentation/shared/components/layout.dart';
+import 'package:parceragem/app/presentation/shared/components/widgets/custom_text_field.dart';
 import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
 import 'package:parceragem/app/presentation/shared/theme/app_typography.dart';
 
@@ -38,11 +39,111 @@ class CreateOrder extends GetView<CreateOrderController> {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return Dialog(
-                          child: Column(
-                            children: [
-                              Text("Informações adicionais ${state[index].id}"),
-                            ],
+                        return Container(
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.all(20),
+                          child: Dialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20.0),
+                              ),
+                            ),
+                            insetPadding: EdgeInsets.all(15.0),
+                            backgroundColor: AppColors.primaryColor,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 16.0,
+                                ),
+                                Text(
+                                  "Informações adicionais",
+                                  style: AppTypography.titleCard,
+                                ),
+                                SizedBox(
+                                  height: 16.0,
+                                ),
+                                Text(
+                                  "Data",
+                                  style: AppTypography.subtitleCard,
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    SizedBox(
+                                      width: 180,
+                                      child: CustomTextField(
+                                        prefix:
+                                            Icon(Icons.calendar_today_outlined),
+                                        hint: "24/01/2001",
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 180,
+                                      child: CustomTextField(
+                                        prefix:
+                                            Icon(Icons.watch_later_outlined),
+                                        hint: "22:00",
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 16.0,
+                                ),
+                                Text(
+                                  "Preço do serviço",
+                                  style: AppTypography.subtitleCard,
+                                ),
+                                SizedBox(
+                                  width: 300,
+                                  child: CustomTextField(
+                                    prefix: Icon(Icons.attach_money_outlined),
+                                    hint: "1000",
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 50,
+                                ),
+                                SizedBox(
+                                  height: 44,
+                                  width: 150,
+                                  child: ElevatedButton(
+                                    style: ButtonStyle(
+                                      shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(32),
+                                        ),
+                                      ),
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                        ((Set<MaterialState> states) {
+                                          if (states
+                                              .contains(MaterialState.pressed))
+                                            return AppColors.secondaryAlt
+                                                .withAlpha(100);
+                                          else
+                                            return AppColors.secondaryAlt;
+                                        }),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'Finalizar',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },
