@@ -25,21 +25,10 @@ class CustomAppbar extends PreferredSize {
                       GestureDetector(
                         child: Icon(
                           Icons.logout,
-                          color: Colors.grey,
+                          size: 36,
+                          color: AppColors.whiteColor,
                         ),
-                        onTap: (){
-                          
-                        },
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.people_alt_rounded,
-                        color: Colors.white,
-                        size: 80,
+                        onTap: () {},
                       ),
                     ],
                   ),

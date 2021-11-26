@@ -32,7 +32,7 @@ class AppRoutes {
           binding: LoginBindings(),
         ),
         GetPage(
-          name: "/register", 
+          name: "/register",
           page: () => RegisterScreen(),
           binding: RegisterBindings(),
         ),

@@ -4,6 +4,7 @@ import 'package:parceragem/app/domain/core/failures/server_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:parceragem/app/domain/repositories/order_request_repository.dart';
 import 'package:parceragem/app/infra/core/http/parceragem_client.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IOrderRequestRepositoryImpl extends OrderRequestRepository {
   final ParceragemClient client;
@@ -12,8 +13,17 @@ class IOrderRequestRepositoryImpl extends OrderRequestRepository {
   @override
   Future<Either<ServerFailures, Unit>> addOrderRequest(String id) async {
     try {
-      final response = await client
-          .post("/transaction/request-order", data: {"order_id": id});
+      final prefs = await SharedPreferences.getInstance();
+      final token = prefs.getString('token');
+      final response = await client.post(
+        "/transaction/request-order",
+        data: {"order_id": id},
+        options: Options(
+          headers: {
+            "authorization": "Bearer $token",
+          },
+        ),
+      );
 
       return right(unit);
     } on DioError catch (e) {

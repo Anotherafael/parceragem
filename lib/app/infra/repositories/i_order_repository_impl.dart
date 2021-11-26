@@ -70,7 +70,17 @@ class IOrderRepositoryImpl extends OrderRepository {
     try {
       final List<OrderEntity> orderList = [];
 
-      final response = await client.get('transaction/pending-orders/$id');
+      final prefs = await SharedPreferences.getInstance();
+      final token = prefs.getString('token');
+
+      final response = await client.get(
+        'transaction/pending-orders/$id',
+        options: Options(
+          headers: {
+            "authorization": "Bearer $token",
+          },
+        ),
+      );
       final List list = response.data!['data'];
 
       for (var i = 0; i < list.length; i++) {

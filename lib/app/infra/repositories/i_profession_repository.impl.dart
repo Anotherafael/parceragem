@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../domain/entities/profession_entity.dart';
 import '../../domain/repositories/profession_repository.dart';
 import '../models/profession_model.dart';
@@ -16,8 +17,17 @@ class IProfessionRepositoryImpl extends ProfessionRepository {
       String id) async {
     try {
       final List<ProfessionEntity> professionList = [];
+      final prefs = await SharedPreferences.getInstance();
+      final token = prefs.getString('token');
 
-      final response = await client.get('service/professions/$id');
+      final response = await client.get(
+        'service/professions/$id',
+        options: Options(
+          headers: {
+            "authorization": "Bearer $token",
+          },
+        ),
+      );
       final List list = response.data!['data'];
 
       for (var i = 0; i < list.length; i++) {

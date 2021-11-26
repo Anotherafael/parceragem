@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
 
 import '../../../shared/components/layout.dart';
@@ -25,20 +27,34 @@ class _HomeClientState extends State<HomeClient> {
               },
               child: Card(
                 color: AppColors.secondaryAlt,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    ListTile(
-                      leading: Icon(
+                margin: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 16,
+                ),
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 0,
+                    horizontal: 32,
+                  ),
+                  height: 150,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
                         Icons.calendar_today_rounded,
-                        color: Colors.white,
+                        color: AppColors.whiteColor,
+                        size: 100,
                       ),
-                      title: Text(
-                        "Agende agora mesmo!",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      Transform.rotate(
+                        angle: 50,
+                        child: Text(
+                          "Agende\nserviços!",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 32, color: AppColors.whiteColor),
+                        ),
                       ),
-                    )
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

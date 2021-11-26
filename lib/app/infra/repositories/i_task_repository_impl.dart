@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../domain/core/failures/server_failures.dart';
 import '../../domain/entities/task_entity.dart';
@@ -16,8 +17,17 @@ class ITaskRepositoryImpl extends TaskRepository {
   Future<Either<ServerFailures, List<TaskEntity>>> getTasks(String id) async {
     try {
       final List<TaskEntity> tasksList = [];
+      final prefs = await SharedPreferences.getInstance();
+      final token = prefs.getString('token');
 
-      final response = await client.get('service/tasks/$id');
+      final response = await client.get(
+        'service/tasks/$id',
+        options: Options(
+          headers: {
+            "authorization": "Bearer $token",
+          },
+        ),
+      );
       final List list = response.data!['data'];
 
       for (var i = 0; i < list.length; i++) {

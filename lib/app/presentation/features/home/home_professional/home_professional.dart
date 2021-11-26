@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
 import 'package:parceragem/app/presentation/shared/theme/app_typography.dart';
 import '../../../shared/components/layout.dart';
@@ -26,13 +27,37 @@ class _HomeProfessionalState extends State<HomeProfessional> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: GestureDetector(
-              child: Container(
-                height: 50,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColors.primaryAlt,
+              child: Card(
+                color: AppColors.secondaryAlt,
+                margin: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 16,
                 ),
-                child: Text('My Orders'),
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 0,
+                    horizontal: 32,
+                  ),
+                  height: 150,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        Icons.calendar_today_rounded,
+                        color: AppColors.whiteColor,
+                        size: 100,
+                      ),
+                      Transform.rotate(
+                        angle: 50,
+                        child: Text(
+                          "Agende\nserviços!",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 32, color: AppColors.whiteColor),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
               onTap: () {
                 Get.toNamed("/myorders");

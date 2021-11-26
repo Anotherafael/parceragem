@@ -78,8 +78,11 @@ class LoginScreen extends GetView<LoginController> {
                           ),
                         ),
                         onPressed: () {
-                          controller.login(emailController.text,
-                              passwordController.text, provider!);
+                          controller.login(
+                            emailController.text,
+                            passwordController.text,
+                            provider!,
+                          );
                           passwordController.text = "";
                         },
                       ),
@@ -88,16 +91,14 @@ class LoginScreen extends GetView<LoginController> {
                       height: 16,
                     ),
                     GestureDetector(
-                      onTap: (){
-                        Get.toNamed(
-                          "/register",
-                          parameters: {'provider': provider!}
-                        );
+                      onTap: () {
+                        Get.toNamed("/register",
+                            parameters: {'provider': provider!});
                       },
                       child: Text(
                         "Não possui uma conta? Cadastre-se aqui",
                         style: TextStyle(
-                          color: Colors.white, 
+                          color: Colors.white,
                           decoration: TextDecoration.underline,
                         ),
                       ),

@@ -51,7 +51,10 @@ class _SelectProviderPageState extends State<SelectProviderPage> {
                           );
                         },
                         child: Icon(Icons.badge, size: 80)),
-                    Text("Sou Funcionário", style: AppTypography.normalPrimary)
+                    Text(
+                      "Sou Funcionário",
+                      style: AppTypography.normalPrimary,
+                    )
                   ],
                 )
               ],

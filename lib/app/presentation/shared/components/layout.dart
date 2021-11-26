@@ -30,8 +30,17 @@ class _LayoutState extends State<Layout> {
         onTap: onTabTapped,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search")
+            icon: Icon(Icons.home_outlined),
+            label: "Página Inicial",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today_rounded),
+            label: "Meus Pedidos",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people_alt_rounded),
+            label: "Perfil",
+          )
         ],
       ),
     );
@@ -48,7 +57,10 @@ class _LayoutState extends State<Layout> {
         }
         break;
       case 1:
-        Get.offAllNamed("/");
+        Get.offAllNamed("/myrequests");
+        break;
+      case 2:
+        Get.offAllNamed("/perfil");
     }
   }
 }
