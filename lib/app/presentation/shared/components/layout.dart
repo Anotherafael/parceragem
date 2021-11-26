@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../theme/app_colors.dart';
 import 'widgets/custom_app_bar.dart';
@@ -22,7 +23,7 @@ class _LayoutState extends State<Layout> {
       body: widget.body,
       floatingActionButton: widget.floatingActionButton,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppColors.colorLightPrimary,
+        backgroundColor: AppColors.primaryColor,
         unselectedItemColor: Colors.white,
         selectedItemColor: Colors.white,
         currentIndex: index,
@@ -36,10 +37,15 @@ class _LayoutState extends State<Layout> {
     );
   }
 
-  void onTabTapped(int i) {
+  void onTabTapped(int i) async {
     switch (i) {
       case 0:
-        Get.offAllNamed("/home/client");
+        final prefs = await SharedPreferences.getInstance();
+        if (prefs.getString("provider") == "users") {
+          Get.offAllNamed("/home/client");
+        } else {
+          Get.offAllNamed("/home/professional");
+        }
         break;
       case 1:
         Get.offAllNamed("/");

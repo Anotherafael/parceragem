@@ -24,7 +24,7 @@ class RegisterScreen extends GetView<RegisterController> {
             alignment: Alignment.center,
             margin: const EdgeInsets.all(32),
             child: Card(
-              color: AppColors.colorLightPrimary,
+              color: AppColors.primaryColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -102,10 +102,10 @@ class RegisterScreen extends GetView<RegisterController> {
                               MaterialStateProperty.resolveWith<Color>(
                             ((Set<MaterialState> states) {
                               if (states.contains(MaterialState.pressed))
-                                return AppColors.colorLightSecondary;
+                                return AppColors.primaryAlt.withAlpha(100);
                               else
-                                return AppColors.colorLightSecondary.withAlpha(
-                                    100); // Use the component's default.
+                                return AppColors
+                                    .primaryAlt; // Use the component's default.
                             }),
                           ),
                         ),
@@ -122,8 +122,7 @@ class RegisterScreen extends GetView<RegisterController> {
                               passwordController.text,
                               docController.text,
                               phoneController.text,
-                              provider!
-                            );
+                              provider!);
                         },
                       ),
                     ),

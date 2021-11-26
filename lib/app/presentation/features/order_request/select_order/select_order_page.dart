@@ -25,7 +25,7 @@ class SelectOrderPage extends GetView<SelectOrderController> {
                     height: 70,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        color: AppColors.colorLightPrimary,
+                        color: AppColors.primaryColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
@@ -88,7 +88,7 @@ class SelectOrderPage extends GetView<SelectOrderController> {
                               Radius.circular(10.0),
                             ),
                           ),
-                          backgroundColor: AppColors.colorLightPrimary,
+                          backgroundColor: AppColors.primaryColor,
                           title: Text("Você tem certeza?"),
                           actions: [
                             ElevatedButton(
@@ -97,11 +97,11 @@ class SelectOrderPage extends GetView<SelectOrderController> {
                                     MaterialStateProperty.resolveWith<Color>(
                                   ((Set<MaterialState> states) {
                                     if (states.contains(MaterialState.pressed))
-                                      return AppColors.colorLightCardColors
+                                      return AppColors.primaryAlt
                                           .withAlpha(100);
                                     else
                                       return AppColors
-                                          .colorLightCardColors; // Use the component's default.
+                                          .primaryAlt; // Use the component's default.
                                   }),
                                 ),
                               ),

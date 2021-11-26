@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../domain/core/failures/server_failures.dart';
 import '../../domain/entities/order_entity.dart';
@@ -31,9 +32,36 @@ class IOrderRepositoryImpl extends OrderRepository {
   }
 
   @override
-  Future<Either<ServerFailures, List<OrderEntity>>> getOrdersByAuth() {
-    // TODO: implement getOrdersByAuth
-    throw UnimplementedError();
+  Future<Either<ServerFailures, List<OrderEntity>>>
+      getOrdersByProfessional() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString("token");
+
+      final List<OrderEntity> orderList = [];
+
+      final response = await client.get(
+        'transaction/myorders',
+        options: Options(
+          headers: {
+            "authorization": "Bearer $token",
+          },
+        ),
+      );
+
+      final List list = response.data!['data'];
+
+      for (var i = 0; i < list.length; i++) {
+        orderList.add(OrderModel.fromMap(list[i]).toEntity());
+      }
+
+      return right(orderList);
+    } on DioError catch (e) {
+      if (e.response!.statusCode == 404) {
+        return left(ServerFailures.notFound);
+      }
+      return left(ServerFailures.serverError);
+    }
   }
 
   @override

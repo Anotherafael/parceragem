@@ -11,7 +11,7 @@ class CustomAppbar extends PreferredSize {
             child: Container(
               height: 100,
               decoration: BoxDecoration(
-                color: AppColors.colorLightPrimary,
+                color: AppColors.primaryColor,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),

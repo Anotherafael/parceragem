@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
 
 import '../../../shared/components/layout.dart';
 
@@ -23,20 +24,22 @@ class _HomeClientState extends State<HomeClient> {
                 Get.toNamed('/order-request/sections');
               },
               child: Card(
-                color: Colors.blueAccent,
-                child:
-                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                  ListTile(
-                    leading: Icon(
-                      Icons.calendar_today_rounded,
-                      color: Colors.white,
-                    ),
-                    title: Text(
-                      "Agende agora mesmo!",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  )
-                ]),
+                color: AppColors.secondaryAlt,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(
+                        Icons.calendar_today_rounded,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        "Agende agora mesmo!",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           )
