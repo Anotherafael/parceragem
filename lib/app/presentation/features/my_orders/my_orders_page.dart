@@ -47,7 +47,7 @@ class MyOrdersPage extends GetView<MyOrdersController> {
                     state[index].task.profession.section.name,
                     state[index].task.profession.name,
                     state[index].task.name,
-                    DateFormat('dd-MM-yyyy').format(state[index].date),
+                    DateFormat('dd/MM/yyyy').format(state[index].date),
                     state[index].hour,
                     state[index].price.toString(),
                   );
