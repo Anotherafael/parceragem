@@ -21,13 +21,13 @@ class IAuthRepositoryImpl extends AuthRepository {
         'auth/login/${requestModel.provider}',
         data: requestModel.toJson(),
       );
-
       final data = response.data!['data'];
-      final profession = await SharedPreferences.getInstance();
       final dataToJson = LoginResponseModel.fromMap(data);
       prefs.setString("token", data["access_token"]);
       if (requestModel.provider == 'professionals')
-        profession.setString('profession', data['user']['professions']['id']);
+        prefs.setString("profession", data['user']['professions']['id']);
+      else
+        prefs.setString("profession", "0");
       return right(dataToJson);
     } on DioError catch (e) {
       if (e.response!.statusCode == 404) {
