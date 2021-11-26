@@ -36,7 +36,7 @@ class CreateOrder extends GetView<CreateOrderController> {
                   ),
                   onTap: () {
                     showDialog(
-                      context: state[index].id,
+                      context: context,
                       builder: (BuildContext context) {
                         return Dialog(
                           child: Column(
