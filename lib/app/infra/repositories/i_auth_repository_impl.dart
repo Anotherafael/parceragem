@@ -25,7 +25,7 @@ class IAuthRepositoryImpl extends AuthRepository {
       final dataToJson = LoginResponseModel.fromMap(data);
       prefs.setString("token", data["access_token"]);
       if (requestModel.provider == 'professionals')
-        prefs.setString("profession", data['user']['professions']['id']);
+        prefs.setString("profession", data['user']['professions'][0]['id']);
       else
         prefs.setString("profession", "0");
       return right(dataToJson);
