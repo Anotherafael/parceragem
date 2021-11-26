@@ -35,7 +35,12 @@ class CreateOrder extends GetView<CreateOrderController> {
                     ),
                   ),
                   onTap: () {
-                    
+                    showDialog(context: state[index].id, 
+                    builder: (BuildContext context){
+                      return SimpleDialog(
+                        title: Text("Informações adicionais ${state[index].id}"),
+                      );
+                    },);
                   },
                 ),
               );
