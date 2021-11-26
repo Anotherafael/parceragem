@@ -45,15 +45,7 @@ class LoginScreen extends GetView<LoginController> {
                       hint: 'Senha',
                       prefix: Icon(Icons.lock),
                       controller: passwordController,
-                      // obscure: !loginStore.passwordVisible,
-                      // onChanged: loginStore.setPassword,
-                      // enabled: !loginStore.loading,
-                      // suffix: CustomIconButton(
-                      //   radius: 32,
-                      //   iconData: loginStore.passwordVisible ?
-                      //     Icons.visibility_off : Icons.visibility,
-                      //   onTap: loginStore.togglePasswordVisibility,
-                      // ),
+                      obscure: true,
                     ),
                     const SizedBox(
                       height: 16,
@@ -90,6 +82,24 @@ class LoginScreen extends GetView<LoginController> {
                               passwordController.text, provider!);
                           passwordController.text = "";
                         },
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                        Get.toNamed(
+                          "/register",
+                          parameters: {'provider': provider!}
+                        );
+                      },
+                      child: Text(
+                        "Não possui uma conta? Cadastre-se aqui",
+                        style: TextStyle(
+                          color: Colors.white, 
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                   ],

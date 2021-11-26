@@ -17,13 +17,31 @@ class CustomAppbar extends PreferredSize {
                   bottomRight: Radius.circular(20),
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Stack(
                 children: [
-                  Icon(
-                    Icons.people_alt_rounded,
-                    color: Colors.white,
-                    size: 80,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      GestureDetector(
+                        child: Icon(
+                          Icons.logout,
+                          color: Colors.grey,
+                        ),
+                        onTap: (){
+                          
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.people_alt_rounded,
+                        color: Colors.white,
+                        size: 80,
+                      ),
+                    ],
                   ),
                 ],
               ),

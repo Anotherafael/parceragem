@@ -53,11 +53,4 @@ class LoginController extends GetxController with StateMixin {
       change([], status: RxStatus.error('Erro ao autenticar'));
     }
   }
-
-  Future<void> register() async {
-    //Registrar usuario
-    // if (user != null) {
-    //   Get.toNamed("/home/client");
-    // }
-  }
 }
