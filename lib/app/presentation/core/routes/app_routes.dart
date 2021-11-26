@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:parceragem/app/presentation/features/login/bindings/login_bindings.dart';
 import 'package:parceragem/app/presentation/features/login/login_screen.dart';
+import 'package:parceragem/app/presentation/features/my_orders/bindings/my_orders_bindings.dart';
+import 'package:parceragem/app/presentation/features/my_orders/my_orders_page.dart';
 import 'package:parceragem/app/presentation/features/order_request/select_order/bindings/select_order_bindings.dart';
 import 'package:parceragem/app/presentation/features/order_request/select_order/select_order_page.dart';
 
@@ -34,12 +36,17 @@ class AppRoutes {
         ),
         GetPage(
           name: "/home/professional",
-          page: () => const HomeProfessional(),
+          page: () => HomeProfessional(),
           binding: HomeBindinds(),
         ),
         GetPage(
           name: "/my-requests",
           page: () => const MyRequestPage(),
+        ),
+        GetPage(
+          name: "/myorders",
+          page: () => MyOrdersPage(),
+          binding: MyOrdersBindings(),
         ),
         GetPage(
           name: "/order-request/sections",

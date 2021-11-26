@@ -15,13 +15,14 @@ class IAuthRepositoryImpl extends AuthRepository {
   Future<Either<ServerFailures, LoginResponseModel>> login(
       LoginRequestModel requestModel) async {
     try {
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString("provider", requestModel.provider);
       final response = await client.post(
         'auth/login/${requestModel.provider}',
         data: requestModel.toJson(),
       );
 
       final data = response.data!['data'];
-      final prefs = await SharedPreferences.getInstance();
       final dataToJson = LoginResponseModel.fromMap(data);
       prefs.setString("token", data["access_token"]);
       return right(dataToJson);

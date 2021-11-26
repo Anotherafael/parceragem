@@ -18,7 +18,7 @@ class SelectProfessionPage extends GetView<SelectProfessionController> {
             itemCount: state.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.fromLTRB(32, 24, 32, 0),
                 child: GestureDetector(
                   onTap: () {
                     Get.toNamed(
@@ -30,7 +30,7 @@ class SelectProfessionPage extends GetView<SelectProfessionController> {
                     height: 50,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        color: AppColors.colorLightPrimary,
+                        color: AppColors.primaryColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
