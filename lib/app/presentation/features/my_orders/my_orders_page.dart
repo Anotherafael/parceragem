@@ -12,7 +12,9 @@ class MyOrdersPage extends GetView<MyOrdersController> {
   Widget build(BuildContext context) {
     return Layout(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed("/create-order");
+        },
         child: Icon(
           Icons.add,
         ),
