@@ -22,11 +22,12 @@ class IAuthRepositoryImpl extends AuthRepository {
 
       final data = response.data!['data'];
       final prefs = await SharedPreferences.getInstance();
-      final profession = await SharedPreferences.getInstance();
       final dataToJson = LoginResponseModel.fromMap(data);
       prefs.setString("token", data["access_token"]);
-      if(requestModel.provider == 'professionals')
-        profession.setString('profession', data['user']['professions']['id']); 
+      if (requestModel.provider == 'professionals')
+        prefs.setString("profession", data['user']['professions']['id']);
+      else
+        prefs.setString("profession", "0");
       return right(dataToJson);
     } on DioError catch (e) {
       if (e.response!.statusCode == 404) {
@@ -37,7 +38,8 @@ class IAuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<Either<ServerFailures, RegisterResponseModel>> register(RegisterRequestModel requestModel) async {
+  Future<Either<ServerFailures, RegisterResponseModel>> register(
+      RegisterRequestModel requestModel) async {
     try {
       final response = await client.post(
         'auth/register/${requestModel.provider}',
