@@ -32,12 +32,13 @@ class LoginScreen extends GetView<LoginController> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     CustomTextField(
-                        hint: 'E-mail',
-                        controller: emailController,
-                        prefix: Icon(Icons.account_circle),
-                        textInputType: TextInputType.emailAddress,
-                        onChanged: (context) {},
-                        enabled: true),
+                      hint: 'E-mail',
+                      controller: emailController,
+                      prefix: Icon(Icons.account_circle),
+                      textInputType: TextInputType.emailAddress,
+                      onChanged: (context) {},
+                      enabled: true,
+                    ),
                     const SizedBox(
                       height: 16,
                     ),
