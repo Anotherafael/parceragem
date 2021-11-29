@@ -9,7 +9,7 @@ class OrderModel {
   final DateTime date;
   final String hour;
   final double price;
-  final int status;
+  final String status;
   final TaskModel task;
   final ProfessionalModel professional;
 

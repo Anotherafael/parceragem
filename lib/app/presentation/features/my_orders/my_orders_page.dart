@@ -22,12 +22,16 @@ class MyOrdersPage extends GetView<MyOrdersController> {
       body: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(Icons.arrow_back),
+              Positioned(
+                left: 0,
+                child: IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: Icon(Icons.arrow_back),
+                ),
               ),
               Container(
                 padding: EdgeInsets.symmetric(vertical: 16),
@@ -35,6 +39,9 @@ class MyOrdersPage extends GetView<MyOrdersController> {
                   'Meus Serviços',
                   style: AppTypography.titlePage,
                 ),
+              ),
+              SizedBox(
+                width: 50,
               ),
             ],
           ),

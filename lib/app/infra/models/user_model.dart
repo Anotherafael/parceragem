@@ -34,7 +34,7 @@ class UserModel {
     return UserModel(
       id: map['id'],
       name: map['name'],
-      password: map['password'],
+      password: "sem senha bro",
       email: map['email'],
       documentId: map['document_id'],
       phone: map['phone'],

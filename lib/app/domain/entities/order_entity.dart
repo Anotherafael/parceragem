@@ -8,7 +8,7 @@ class OrderEntity extends Equatable {
   final DateTime date;
   final String hour;
   final double price;
-  final int status;
+  final String status;
   final TaskEntity task;
   final ProfessionalEntity professional;
 

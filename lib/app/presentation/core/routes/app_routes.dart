@@ -5,6 +5,7 @@ import 'package:parceragem/app/presentation/features/login/bindings/login_bindin
 import 'package:parceragem/app/presentation/features/login/login_screen.dart';
 import 'package:parceragem/app/presentation/features/my_orders/bindings/my_orders_bindings.dart';
 import 'package:parceragem/app/presentation/features/my_orders/my_orders_page.dart';
+import 'package:parceragem/app/presentation/features/my_request/bindings/my_requests_bindings.dart';
 import 'package:parceragem/app/presentation/features/order_request/select_order/bindings/select_order_bindings.dart';
 import 'package:parceragem/app/presentation/features/order_request/select_order/select_order_page.dart';
 import 'package:parceragem/app/presentation/features/register/bindings/register_bindings.dart';
@@ -54,8 +55,9 @@ class AppRoutes {
           binding: HomeBindinds(),
         ),
         GetPage(
-          name: "/my-requests",
-          page: () => const MyRequestPage(),
+          name: "/myrequests",
+          page: () => MyRequestPage(),
+          binding: MyRequestsBindings(),
         ),
         GetPage(
           name: "/myorders",

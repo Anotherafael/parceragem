@@ -30,8 +30,8 @@ class RequestOrderModel {
     return RequestOrderModel(
       id: map['id'],
       status: map['status'],
-      order: map['order'],
-      user: map['user'],
+      order: OrderModel.fromMap(map['order']),
+      user: UserModel.fromMap(map['user']),
     );
   }
 
