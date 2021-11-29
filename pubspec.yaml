@@ -35,7 +35,7 @@ dependencies:
   get: 
   intl: ^0.17.0
   shared_preferences: 
-
+  date_time_picker: 
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -14,8 +14,8 @@ class IOrderRepositoryImpl extends OrderRepository {
   IOrderRepositoryImpl(this.client);
 
   @override
-  Future<Either<ServerFailures, String>> addOrder() {
-    // TODO: implement addOrder
+  Future<Either<ServerFailures, String>> addOrder(Map<String, dynamic> map) async {
+    // TODO: implement cancelOrder
     throw UnimplementedError();
   }
 
