@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:parceragem/app/presentation/core/validation/validation_exception.dart';
 import '../../shared/components/widgets/custom_text_field.dart';
 import '../../shared/theme/app_colors.dart';
 import 'controller/register_controller.dart';

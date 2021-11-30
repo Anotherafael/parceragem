@@ -39,7 +39,7 @@ class CreateOrder extends GetView<CreateOrderController> {
                       builder: (BuildContext context) {
                         return Container(
                           alignment: Alignment.center,
-                          margin: const EdgeInsets.all(20),
+                          margin: const EdgeInsets.fromLTRB(20, 100, 20, 100),
                           child: Dialog(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(

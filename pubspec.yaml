@@ -34,9 +34,10 @@ dependencies:
   dartz: ^0.10.0
   get: 
   intl: ^0.17.0
-  shared_preferences:
+  shared_preferences: 
+  date_time_picker: 
   mask_text_input_formatter: ^2.0.0
-
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
