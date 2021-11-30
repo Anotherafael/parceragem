@@ -8,7 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class IAuthRepositoryImpl extends AuthRepository {
   final ParceragemClient client;
-
   IAuthRepositoryImpl(this.client);
 
   @override
@@ -51,6 +50,29 @@ class IAuthRepositoryImpl extends AuthRepository {
       final data = response.data!['data'];
       final dataToJson = RegisterResponseModel.fromMap(data);
       return right(dataToJson);
+    } on DioError catch (e) {
+      if (e.response!.statusCode == 404) {
+        return left(ServerFailures.notFound);
+      }
+      return left(ServerFailures.serverError);
+    }
+  }
+
+  @override
+  Future<Either<ServerFailures, Unit>> logout() async {
+    try {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      final String? token = prefs.getString('token');
+
+      await client.post(
+        "auth/logout",
+        options: Options(
+          headers: {
+            "authorization": "Bearer $token",
+          }
+        )
+      );
+      return right(unit);
     } on DioError catch (e) {
       if (e.response!.statusCode == 404) {
         return left(ServerFailures.notFound);

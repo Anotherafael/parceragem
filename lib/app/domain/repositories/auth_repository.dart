@@ -8,6 +8,7 @@ abstract class AuthRepository {
       LoginRequestModel requestModel);
   Future<Either<ServerFailures, RegisterResponseModel>> register(
       RegisterRequestModel requestModel);
+  Future<Either<ServerFailures, Unit>> logout();
   //Future<Either<ServerFailures, String>> forgotPassword();
   //Future<Either<ServerFailures, String>> resetPassword();
 }

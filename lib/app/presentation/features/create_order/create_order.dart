@@ -1,3 +1,4 @@
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -68,29 +69,56 @@ class CreateOrder extends GetView<CreateOrderController> {
                                 SizedBox(
                                   height: 4,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    SizedBox(
-                                      width: 180,
-                                      child: CustomTextField(
-                                        inputFormatters: [],
-                                        prefix:
-                                            Icon(Icons.calendar_today_outlined),
-                                        hint: "24/01/2001",
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 180,
-                                      child: CustomTextField(
-                                        inputFormatters: [],
-                                        prefix:
-                                            Icon(Icons.watch_later_outlined),
-                                        hint: "22:00",
-                                      ),
-                                    ),
-                                  ],
+                                // Row(
+                                //   mainAxisAlignment:
+                                //       MainAxisAlignment.spaceAround,
+                                //   children: [
+                                //     SizedBox(
+                                //       width: 180,
+                                //       child: CustomTextField(
+                                //         inputFormatters: [],
+                                //         prefix:
+                                //             Icon(Icons.calendar_today_outlined),
+                                //         hint: "24/01/2001",
+                                //       ),
+                                //     ),
+                                //     SizedBox(
+                                //       width: 180,
+                                //       child: CustomTextField(
+                                //         inputFormatters: [],
+                                //         prefix:
+                                //             Icon(Icons.watch_later_outlined),
+                                //         hint: "22:00",
+                                //       ),
+                                //     ),
+                                //   ],
+                                // ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                  child: DateTimePicker(
+                                    type: DateTimePickerType.dateTimeSeparate,
+                                    dateMask: 'd MMM, yyyy',
+                                    initialValue: DateTime.now().add(Duration(days: 2)).toString(),
+                                    firstDate: DateTime(2000),
+                                    lastDate: DateTime(2100),
+                                    icon: Icon(Icons.event),
+                                    dateLabelText: 'Date',
+                                    timeLabelText: "Hour",
+                                    selectableDayPredicate: (date) {
+                                      // Disable weekend days to select from the calendar
+                                      if (date.weekday == 6 ||
+                                          date.weekday == 7 || date.isBefore(DateTime.now())) {
+                                        return false;
+                                      }
+                                      return true;
+                                    },
+                                    onChanged: (val) => print(val),
+                                    validator: (val) {
+                                      print(val);
+                                      return null;
+                                    },
+                                    onSaved: (val) => print(val),
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 16.0,

@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:parceragem/app/infra/core/http/parceragem_client.dart';
+import 'package:parceragem/app/infra/repositories/i_auth_repository_impl.dart';
+import 'package:parceragem/app/presentation/shared/controllers/app_bar_controller.dart';
 
 import '../../theme/app_colors.dart';
 
 class CustomAppbar extends PreferredSize {
+  static final controller = AppBarController(IAuthRepositoryImpl(ParceragemClient()));
   CustomAppbar()
       : super(
           preferredSize: Size.fromHeight(100),
@@ -28,7 +32,9 @@ class CustomAppbar extends PreferredSize {
                           size: 36,
                           color: AppColors.whiteColor,
                         ),
-                        onTap: () {},
+                        onTap: () async {
+                          controller.logout();
+                        },
                       ),
                     ],
                   ),
