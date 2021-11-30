@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
-import 'package:parceragem/app/domain/core/failures/server_failures.dart';
-import 'package:parceragem/app/domain/repositories/task_repository.dart';
+import '../../../../domain/core/failures/server_failures.dart';
+import '../../../../domain/repositories/task_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CreateOrderController extends GetxController with StateMixin{
-final TaskRepository repository;
+class CreateOrderController extends GetxController with StateMixin {
+  final TaskRepository repository;
 
   CreateOrderController(this.repository);
 

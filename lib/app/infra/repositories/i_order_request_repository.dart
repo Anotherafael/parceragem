@@ -1,11 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:parceragem/app/domain/entities/order_entity.dart';
-import 'package:parceragem/app/domain/core/failures/server_failures.dart';
+import '../../domain/core/failures/server_failures.dart';
 import 'package:dartz/dartz.dart';
-import 'package:parceragem/app/domain/entities/request_order_entity.dart';
-import 'package:parceragem/app/domain/repositories/order_request_repository.dart';
-import 'package:parceragem/app/infra/core/http/parceragem_client.dart';
-import 'package:parceragem/app/infra/models/request_order_model.dart';
+import '../../domain/entities/request_order_entity.dart';
+import '../../domain/repositories/order_request_repository.dart';
+import '../core/http/parceragem_client.dart';
+import '../models/request_order_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class IOrderRequestRepositoryImpl extends OrderRequestRepository {
@@ -17,7 +16,7 @@ class IOrderRequestRepositoryImpl extends OrderRequestRepository {
     try {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('token');
-      final response = await client.post(
+      client.post(
         "/transaction/request-order",
         data: {"order_id": id},
         options: Options(
@@ -74,12 +73,5 @@ class IOrderRequestRepositoryImpl extends OrderRequestRepository {
       }
       return left(ServerFailures.serverError);
     }
-  }
-
-  @override
-  Future<Either<ServerFailures, List<RequestOrderEntity>>>
-      getOrderRequestsByUser() {
-    // TODO: implement getOrderRequestsByUser
-    throw UnimplementedError();
   }
 }

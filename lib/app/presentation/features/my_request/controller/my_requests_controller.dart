@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:parceragem/app/domain/core/failures/server_failures.dart';
-import 'package:parceragem/app/domain/repositories/order_request_repository.dart';
+import '../../../../domain/core/failures/server_failures.dart';
+import '../../../../domain/repositories/order_request_repository.dart';
 
 class MyRequestsController extends GetxController with StateMixin {
   final OrderRequestRepository repository;

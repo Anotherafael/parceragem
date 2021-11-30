@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:parceragem/app/domain/repositories/order_request_repository.dart';
-import 'package:parceragem/app/infra/repositories/i_order_request_repository.dart';
+import '../../../../../domain/repositories/order_request_repository.dart';
+import '../../../../../infra/repositories/i_order_request_repository.dart';
 
 import '../../../../../domain/repositories/order_repository.dart';
 import '../../../../../infra/core/http/parceragem_client.dart';

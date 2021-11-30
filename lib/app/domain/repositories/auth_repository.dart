@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:parceragem/app/infra/models/auth_model.dart';
+import '../../infra/models/auth_model.dart';
 
 import '../core/failures/server_failures.dart';
 

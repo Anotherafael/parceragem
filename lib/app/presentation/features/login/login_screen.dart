@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:parceragem/app/presentation/features/login/controller/login_controller.dart';
-import 'package:parceragem/app/presentation/shared/components/widgets/custom_text_field.dart';
-import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
+import 'controller/login_controller.dart';
+import '../../shared/components/widgets/custom_text_field.dart';
+import '../../shared/theme/app_colors.dart';
 
 class LoginScreen extends GetView<LoginController> {
   final String? provider = Get.parameters['provider'];
@@ -15,23 +15,28 @@ class LoginScreen extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColors.primary,
         body: Form(
           key: _formKey,
           child: Container(
             alignment: Alignment.center,
             margin: const EdgeInsets.all(32),
             child: Card(
-              color: AppColors.primaryColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
               elevation: 16,
-              child: Padding(
-                padding: const EdgeInsets.all(16),
+              child: Container(
+                padding: const EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  gradient: AppColors.violetCardGradient,
+                  borderRadius: BorderRadius.circular(15),
+                ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     CustomTextField(
+                      inputFormatters: [],
                       hint: 'E-mail',
                       controller: emailController,
                       prefix: Icon(Icons.account_circle),
@@ -43,6 +48,7 @@ class LoginScreen extends GetView<LoginController> {
                       height: 16,
                     ),
                     CustomTextField(
+                      inputFormatters: [],
                       hint: 'Senha',
                       prefix: Icon(Icons.lock),
                       controller: passwordController,
@@ -55,21 +61,10 @@ class LoginScreen extends GetView<LoginController> {
                       height: 44,
                       width: 150,
                       child: ElevatedButton(
-                        style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(32),
-                            ),
-                          ),
-                          backgroundColor:
-                              MaterialStateProperty.resolveWith<Color>(
-                            ((Set<MaterialState> states) {
-                              if (states.contains(MaterialState.pressed))
-                                return AppColors.secondaryAlt.withAlpha(100);
-                              else
-                                return AppColors.secondaryAlt;
-                            }),
+                        style: ElevatedButton.styleFrom(
+                          primary: AppColors.successAlt,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32),
                           ),
                         ),
                         child: Text(

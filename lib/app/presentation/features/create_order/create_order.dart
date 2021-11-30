@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:parceragem/app/domain/repositories/auth_repository.dart';
-import 'package:parceragem/app/mock/profession.dart';
-import 'package:parceragem/app/presentation/features/create_order/controller/create_order_controller.dart';
-import 'package:parceragem/app/presentation/shared/components/layout.dart';
-import 'package:parceragem/app/presentation/shared/components/widgets/custom_text_field.dart';
-import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
-import 'package:parceragem/app/presentation/shared/theme/app_typography.dart';
+import 'controller/create_order_controller.dart';
+import '../../shared/components/layout.dart';
+import '../../shared/components/widgets/custom_text_field.dart';
+import '../../shared/theme/app_colors.dart';
+import '../../shared/theme/app_typography.dart';
 
 class CreateOrder extends GetView<CreateOrderController> {
   @override
@@ -77,6 +75,7 @@ class CreateOrder extends GetView<CreateOrderController> {
                                     SizedBox(
                                       width: 180,
                                       child: CustomTextField(
+                                        inputFormatters: [],
                                         prefix:
                                             Icon(Icons.calendar_today_outlined),
                                         hint: "24/01/2001",
@@ -85,6 +84,7 @@ class CreateOrder extends GetView<CreateOrderController> {
                                     SizedBox(
                                       width: 180,
                                       child: CustomTextField(
+                                        inputFormatters: [],
                                         prefix:
                                             Icon(Icons.watch_later_outlined),
                                         hint: "22:00",
@@ -102,6 +102,7 @@ class CreateOrder extends GetView<CreateOrderController> {
                                 SizedBox(
                                   width: 300,
                                   child: CustomTextField(
+                                    inputFormatters: [],
                                     prefix: Icon(Icons.attach_money_outlined),
                                     hint: "1000",
                                   ),

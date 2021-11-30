@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
+import 'app_colors.dart';
 
 class AppTypography {
   static final TextStyle normalPrimary = GoogleFonts.montserrat(
@@ -32,5 +32,17 @@ class AppTypography {
   static final TextStyle subtitleCard = GoogleFonts.montserrat(
     color: AppColors.whiteColor,
     fontSize: 14,
+  );
+
+  static final TextStyle providerCard = GoogleFonts.montserrat(
+    color: AppColors.whiteColor,
+    fontWeight: FontWeight.w500,
+    fontSize: 20,
+  );
+
+  static final TextStyle errorInput = GoogleFonts.montserrat(
+    color: AppColors.whiteColor,
+    fontWeight: FontWeight.w400,
+    fontSize: 10,
   );
 }

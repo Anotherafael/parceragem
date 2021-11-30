@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
-import 'package:parceragem/app/presentation/features/create_order/bindings/create_order_bindings.dart';
-import 'package:parceragem/app/presentation/features/create_order/create_order.dart';
-import 'package:parceragem/app/presentation/features/login/bindings/login_bindings.dart';
-import 'package:parceragem/app/presentation/features/login/login_screen.dart';
-import 'package:parceragem/app/presentation/features/my_orders/bindings/my_orders_bindings.dart';
-import 'package:parceragem/app/presentation/features/my_orders/my_orders_page.dart';
-import 'package:parceragem/app/presentation/features/my_request/bindings/my_requests_bindings.dart';
-import 'package:parceragem/app/presentation/features/order_request/select_order/bindings/select_order_bindings.dart';
-import 'package:parceragem/app/presentation/features/order_request/select_order/select_order_page.dart';
-import 'package:parceragem/app/presentation/features/register/bindings/register_bindings.dart';
-import 'package:parceragem/app/presentation/features/register/register_screen.dart';
+import '../../features/create_order/bindings/create_order_bindings.dart';
+import '../../features/create_order/create_order.dart';
+import '../../features/login/bindings/login_bindings.dart';
+import '../../features/login/login_screen.dart';
+import '../../features/my_orders/bindings/my_orders_bindings.dart';
+import '../../features/my_orders/my_orders_page.dart';
+import '../../features/my_request/bindings/my_requests_bindings.dart';
+import '../../features/order_request/select_order/bindings/select_order_bindings.dart';
+import '../../features/order_request/select_order/select_order_page.dart';
+import '../../features/register/bindings/register_bindings.dart';
+import '../../features/register/register_screen.dart';
 
 import '../../features/home/home_client/bindings/home_bindings.dart';
 import '../../features/home/home_client/home_client.dart';

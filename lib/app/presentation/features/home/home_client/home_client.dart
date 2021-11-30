@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
+import '../../../shared/theme/app_colors.dart';
 
 import '../../../shared/components/layout.dart';
 

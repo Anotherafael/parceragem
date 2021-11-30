@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:parceragem/app/presentation/shared/components/layout.dart';
-import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
-import 'package:parceragem/app/presentation/shared/theme/app_typography.dart';
+import '../../shared/components/layout.dart';
+import '../../shared/theme/app_colors.dart';
+import '../../shared/theme/app_typography.dart';
 
 import 'controller/my_orders_controller.dart';
 

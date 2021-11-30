@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:parceragem/app/domain/entities/request_order_entity.dart';
+import '../entities/request_order_entity.dart';
 
 import '../core/failures/server_failures.dart';
 

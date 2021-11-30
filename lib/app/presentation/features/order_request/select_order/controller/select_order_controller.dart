@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:parceragem/app/domain/repositories/order_request_repository.dart';
+import '../../../../../domain/repositories/order_request_repository.dart';
 
 import '../../../../../domain/core/failures/server_failures.dart';
 import '../../../../../domain/repositories/order_repository.dart';
