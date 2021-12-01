@@ -3,9 +3,11 @@ import '../../../../domain/core/failures/server_failures.dart';
 import '../../../../domain/repositories/auth_repository.dart';
 import '../../../../infra/models/auth_model.dart';
 
-class LoginController extends GetxController with StateMixin {
+class LoginController extends GetxController {
   final AuthRepository repository;
   LoginController(this.repository);
+
+  final isLoading = false.obs;
 
   @override
   void onInit() {
@@ -13,7 +15,7 @@ class LoginController extends GetxController with StateMixin {
   }
 
   Future<void> login(String email, String password, String provider) async {
-    change([], status: RxStatus.loading());
+    isLoading.value=true;
     try {
       final result = await repository.login(
         LoginRequestModel(
@@ -37,7 +39,6 @@ class LoginController extends GetxController with StateMixin {
           }
         },
         (r) {
-          change(r, status: RxStatus.success());
           switch (provider) {
             case "users":
               Get.toNamed("/home/client");
@@ -50,7 +51,8 @@ class LoginController extends GetxController with StateMixin {
       );
     } catch (e) {
       print(e);
-      change([], status: RxStatus.error('Erro ao autenticar'));
+    } finally{
+      isLoading.value=false;
     }
   }
 }

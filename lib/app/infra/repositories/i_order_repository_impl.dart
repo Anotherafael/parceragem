@@ -14,9 +14,19 @@ class IOrderRepositoryImpl extends OrderRepository {
   IOrderRepositoryImpl(this.client);
 
   @override
-  Future<Either<ServerFailures, String>> addOrder(Map<String, dynamic> map) async {
-    // TODO: implement cancelOrder
-    throw UnimplementedError();
+  Future<Either<ServerFailures, Unit>> addOrder(Map<String, dynamic> map) async {
+    try {
+      await client.post(
+        "transaction/order",
+        data: map
+      );
+      return right(unit);
+    } on DioError catch (e) {
+      if (e.response!.statusCode == 404) {
+        return left(ServerFailures.notFound);
+      }
+      return left(ServerFailures.serverError);
+    }
   }
 
   @override

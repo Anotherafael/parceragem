@@ -12,6 +12,6 @@ class CreateOrderBindings extends Bindings {
   void dependencies() {
     Get.put(Dio());
     Get.put<TaskRepository>(ITaskRepositoryImpl(client));
-    Get.put(CreateOrderController(Get.find()));
+    Get.put(CreateOrderController(Get.find(), Get.find()));
   }
 }

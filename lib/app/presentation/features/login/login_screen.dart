@@ -60,27 +60,37 @@ class LoginScreen extends GetView<LoginController> {
                     SizedBox(
                       height: 44,
                       width: 150,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: AppColors.successAlt,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32),
-                          ),
-                        ),
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                        onPressed: () {
-                          controller.login(
-                            emailController.text,
-                            passwordController.text,
-                            provider!,
-                          );
-                          passwordController.text = "";
-                        },
+                      child: Obx(
+                        () => controller.isLoading.value
+                            ? SizedBox(
+                                height: 40,
+                                width: 40,
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                ),
+                              )
+                            : ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: AppColors.successAlt,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(32),
+                                  ),
+                                ),
+                                child: Text(
+                                  'Login',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  controller.login(
+                                    emailController.text,
+                                    passwordController.text,
+                                    provider!,
+                                  );
+                                  passwordController.text = "";
+                                },
+                              ),
                       ),
                     ),
                     const SizedBox(

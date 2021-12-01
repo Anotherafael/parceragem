@@ -2,6 +2,7 @@ import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'controller/create_order_controller.dart';
 import '../../shared/components/layout.dart';
 import '../../shared/components/widgets/custom_text_field.dart';
@@ -9,6 +10,10 @@ import '../../shared/theme/app_colors.dart';
 import '../../shared/theme/app_typography.dart';
 
 class CreateOrder extends GetView<CreateOrderController> {
+  final TextEditingController moneyController = TextEditingController();
+  DateTime? data;
+  String? hora;
+
   @override
   Widget build(BuildContext context) {
     controller.findTasks();
@@ -94,31 +99,46 @@ class CreateOrder extends GetView<CreateOrderController> {
                                 //   ],
                                 // ),
                                 Padding(
-                                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(5, 0, 5, 0),
                                   child: DateTimePicker(
-                                    type: DateTimePickerType.dateTimeSeparate,
-                                    dateMask: 'd MMM, yyyy',
-                                    initialValue: DateTime.now().add(Duration(days: 2)).toString(),
-                                    firstDate: DateTime(2000),
-                                    lastDate: DateTime(2100),
-                                    icon: Icon(Icons.event),
-                                    dateLabelText: 'Date',
-                                    timeLabelText: "Hour",
-                                    selectableDayPredicate: (date) {
-                                      // Disable weekend days to select from the calendar
-                                      if (date.weekday == 6 ||
-                                          date.weekday == 7 || date.isBefore(DateTime.now())) {
-                                        return false;
+                                      decoration: InputDecoration(
+                                        fillColor: AppColors.white,
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(32),
+                                        ),
+                                      ),
+                                      type: DateTimePickerType.dateTimeSeparate,
+                                      dateMask: 'd MMM, yyyy',
+                                      initialValue: DateTime.now()
+                                          .add(Duration(days: 2))
+                                          .toString(),
+                                      firstDate: DateTime(2000),
+                                      lastDate: DateTime(2100),
+                                      icon: Icon(Icons.event),
+                                      dateLabelText: 'Date',
+                                      timeLabelText: "Hour",
+                                      selectableDayPredicate: (date) {
+                                        // Disable weekend days to select from the calendar
+                                        if (date.weekday == 6 ||
+                                            date.weekday == 7 ||
+                                            date.isBefore(DateTime.now())) {
+                                          return false;
+                                        }
+                                        return true;
+                                      },
+                                      onChanged: (val) {
+                                        data = DateTime.parse(
+                                            DateFormat("yyyy-MM-dd")
+                                                .format(DateTime.parse(val)));
+                                        //data = DateTime.parse(val);
+                                        hora = DateFormat.Hms()
+                                            .format(DateTime.parse(val));
+                                        print([data, hora]);
                                       }
-                                      return true;
-                                    },
-                                    onChanged: (val) => print(val),
-                                    validator: (val) {
-                                      print(val);
-                                      return null;
-                                    },
-                                    onSaved: (val) => print(val),
-                                  ),
+                                      //onSaved: (val) => print(DateFormat.Hms().format(DateTime.parse(val!))),
+                                      ),
                                 ),
                                 SizedBox(
                                   height: 16.0,
@@ -130,6 +150,7 @@ class CreateOrder extends GetView<CreateOrderController> {
                                 SizedBox(
                                   width: 300,
                                   child: CustomTextField(
+                                    controller: moneyController,
                                     inputFormatters: [],
                                     prefix: Icon(Icons.attach_money_outlined),
                                     hint: "1000",
@@ -168,7 +189,11 @@ class CreateOrder extends GetView<CreateOrderController> {
                                         color: Colors.white,
                                       ),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      controller.addOrder(state[index].id,
+                                          moneyController.text, data!, hora!);
+                                      Get.back();
+                                    },
                                   ),
                                 ),
                               ],
