@@ -23,47 +23,49 @@ class MyOrdersPage extends GetView<MyOrdersController> {
         ),
         backgroundColor: AppColors.secondaryCardAlt,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
-            child: IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: Icon(
-                Icons.arrow_back,
-                color: AppColors.white,
-                size: 32,
-              ),
-              alignment: Alignment.centerLeft,
-            ),
-          ),
-          SizedBox(
-            width: 50,
-          ),
-          controller.obx(
-            (state) {
-              return ListView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-                itemCount: state.length,
-                itemBuilder: (context, index) {
-                  return cardItem(
-                    state[index].task.profession.section.name,
-                    state[index].task.profession.name,
-                    state[index].task.name,
-                    DateFormat('dd/MM/yyyy').format(state[index].date),
-                    state[index].hour,
-                    state[index].price.toString(),
-                    state[index].status,
-                  );
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
+              child: IconButton(
+                onPressed: () {
+                  Get.back();
                 },
-              );
-            },
-          ),
-        ],
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: AppColors.white,
+                  size: 32,
+                ),
+                alignment: Alignment.centerLeft,
+              ),
+            ),
+            SizedBox(
+              width: 50,
+            ),
+            controller.obx(
+              (state) {
+                return ListView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+                  itemCount: state.length,
+                  itemBuilder: (context, index) {
+                    return cardItem(
+                      state[index].task.profession.section.name,
+                      state[index].task.profession.name,
+                      state[index].task.name,
+                      DateFormat('dd/MM/yyyy').format(state[index].date),
+                      state[index].hour,
+                      state[index].price.toString(),
+                      state[index].status,
+                    );
+                  },
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

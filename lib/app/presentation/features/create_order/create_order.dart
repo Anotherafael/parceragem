@@ -11,7 +11,7 @@ import '../../shared/theme/app_typography.dart';
 
 class CreateOrder extends GetView<CreateOrderController> {
   final TextEditingController moneyController = TextEditingController();
-  DateTime? data;
+  String? data;
   String? hora;
 
   @override
@@ -74,30 +74,6 @@ class CreateOrder extends GetView<CreateOrderController> {
                                 SizedBox(
                                   height: 4,
                                 ),
-                                // Row(
-                                //   mainAxisAlignment:
-                                //       MainAxisAlignment.spaceAround,
-                                //   children: [
-                                //     SizedBox(
-                                //       width: 180,
-                                //       child: CustomTextField(
-                                //         inputFormatters: [],
-                                //         prefix:
-                                //             Icon(Icons.calendar_today_outlined),
-                                //         hint: "24/01/2001",
-                                //       ),
-                                //     ),
-                                //     SizedBox(
-                                //       width: 180,
-                                //       child: CustomTextField(
-                                //         inputFormatters: [],
-                                //         prefix:
-                                //             Icon(Icons.watch_later_outlined),
-                                //         hint: "22:00",
-                                //       ),
-                                //     ),
-                                //   ],
-                                // ),
                                 Padding(
                                   padding:
                                       const EdgeInsets.fromLTRB(5, 0, 5, 0),
@@ -129,9 +105,8 @@ class CreateOrder extends GetView<CreateOrderController> {
                                         return true;
                                       },
                                       onChanged: (val) {
-                                        data = DateTime.parse(
-                                            DateFormat("yyyy-MM-dd")
-                                                .format(DateTime.parse(val)));
+                                        data = DateFormat("yyyy-MM-dd")
+                                            .format(DateTime.parse(val));
                                         //data = DateTime.parse(val);
                                         hora = DateFormat.Hms()
                                             .format(DateTime.parse(val));
@@ -191,8 +166,8 @@ class CreateOrder extends GetView<CreateOrderController> {
                                     ),
                                     onPressed: () {
                                       controller.addOrder(state[index].id,
-                                          moneyController.text, data!, hora!);
-                                      Get.back();
+                                          double.parse(moneyController.text), data!, hora!);
+                                      Get.offAllNamed("/myorders");
                                     },
                                   ),
                                 ),

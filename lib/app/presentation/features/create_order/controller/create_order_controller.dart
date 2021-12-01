@@ -14,7 +14,7 @@ class CreateOrderController extends GetxController with StateMixin {
     super.onInit();
   }
 
-  Future<void> addOrder(String taskId, String price, DateTime date, String hour) async{
+  Future<void> addOrder(String taskId, double price, String date, String hour) async{
     try {
       final result = await repo.addOrder(
         {

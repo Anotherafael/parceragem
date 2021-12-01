@@ -12,12 +12,20 @@ class IOrderRepositoryImpl extends OrderRepository {
   final ParceragemClient client;
 
   IOrderRepositoryImpl(this.client);
+  
 
   @override
   Future<Either<ServerFailures, Unit>> addOrder(Map<String, dynamic> map) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString("token");
     try {
       await client.post(
         "transaction/order",
+        options: Options(
+          headers:{
+            "authorization": "Bearer $token",
+          }
+        ),
         data: map
       );
       return right(unit);
