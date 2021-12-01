@@ -21,9 +21,10 @@ class IAuthRepositoryImpl extends AuthRepository {
       );
       final data = response.data!['data'];
       final prefs = await SharedPreferences.getInstance();
+      prefs.setString("user", data['user']['name']);
       prefs.setString("provider", requestModel.provider);
-      final dataToJson = LoginResponseModel.fromMap(data);
       prefs.setString("token", data["access_token"]);
+      final dataToJson = LoginResponseModel.fromMap(data);
       if (requestModel.provider == 'professionals')
         prefs.setString("profession", data['user']['professions'][0]['id']);
       else
@@ -64,14 +65,10 @@ class IAuthRepositoryImpl extends AuthRepository {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final String? token = prefs.getString('token');
 
-      await client.post(
-        "auth/logout",
-        options: Options(
-          headers: {
+      await client.post("auth/logout",
+          options: Options(headers: {
             "authorization": "Bearer $token",
-          }
-        )
-      );
+          }));
       return right(unit);
     } on DioError catch (e) {
       if (e.response!.statusCode == 404) {

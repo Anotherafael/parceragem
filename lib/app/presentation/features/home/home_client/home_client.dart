@@ -25,37 +25,34 @@ class _HomeClientState extends State<HomeClient> {
               onTap: () {
                 Get.toNamed('/order-request/sections');
               },
-              child: Card(
-                color: AppColors.secondaryAlt,
-                margin: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 16,
+              child: Container(
+                margin: EdgeInsets.fromLTRB(16, 32, 16, 16),
+                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 25),
+                decoration: BoxDecoration(
+                  gradient: AppColors.blueCardGradient,
+                  borderRadius: BorderRadius.circular(16),
                 ),
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 0,
-                    horizontal: 32,
-                  ),
-                  height: 150,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.calendar_today_rounded,
-                        color: AppColors.whiteColor,
-                        size: 100,
-                      ),
-                      Transform.rotate(
-                        angle: 50,
-                        child: Text(
-                          "Agende\nserviços!",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.montserrat(
-                              fontSize: 32, color: AppColors.whiteColor),
+                height: 150,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(
+                      Icons.calendar_today_rounded,
+                      color: AppColors.whiteColor,
+                      size: 100,
+                    ),
+                    Transform.rotate(
+                      angle: 50,
+                      child: Text(
+                        "Agende\nserviços!",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.montserrat(
+                          fontSize: 30,
+                          color: AppColors.whiteColor,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

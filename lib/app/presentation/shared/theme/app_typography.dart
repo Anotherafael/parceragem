@@ -19,7 +19,7 @@ class AppTypography {
   );
 
   static final TextStyle titlePage = GoogleFonts.montserrat(
-    color: AppColors.darkColor,
+    color: AppColors.white,
     fontWeight: FontWeight.w600,
     fontSize: 24,
   );
@@ -44,5 +44,11 @@ class AppTypography {
     color: AppColors.whiteColor,
     fontWeight: FontWeight.w400,
     fontSize: 10,
+  );
+
+  static final TextStyle orderSelectCard = GoogleFonts.montserrat(
+    color: AppColors.white,
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
   );
 }

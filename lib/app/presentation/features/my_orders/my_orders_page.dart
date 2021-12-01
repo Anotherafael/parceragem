@@ -11,39 +11,37 @@ class MyOrdersPage extends GetView<MyOrdersController> {
   @override
   Widget build(BuildContext context) {
     return Layout(
+      title: "Meus Serviços",
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.toNamed("/create-order");
         },
         child: Icon(
           Icons.add,
+          size: 40,
+          color: AppColors.white,
         ),
+        backgroundColor: AppColors.secondaryCardAlt,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Positioned(
-                left: 0,
-                child: IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: Icon(Icons.arrow_back),
-                ),
+          Container(
+            margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
+            child: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                color: AppColors.white,
+                size: 32,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 16),
-                child: Text(
-                  'Meus Serviços',
-                  style: AppTypography.titlePage,
-                ),
-              ),
-              SizedBox(
-                width: 50,
-              ),
-            ],
+              alignment: Alignment.centerLeft,
+            ),
+          ),
+          SizedBox(
+            width: 50,
           ),
           controller.obx(
             (state) {
@@ -59,6 +57,7 @@ class MyOrdersPage extends GetView<MyOrdersController> {
                     DateFormat('dd/MM/yyyy').format(state[index].date),
                     state[index].hour,
                     state[index].price.toString(),
+                    state[index].status,
                   );
                 },
               );
@@ -76,18 +75,19 @@ class MyOrdersPage extends GetView<MyOrdersController> {
     String date,
     String hour,
     String price,
+    String status,
   ) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+      padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
       child: GestureDetector(
         onTap: () {},
         child: Container(
-          height: 145,
+          height: 140,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
             ),
-            color: AppColors.secondaryAlt,
+            gradient: AppColors.blueCardGradient,
           ),
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -95,34 +95,63 @@ class MyOrdersPage extends GetView<MyOrdersController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  section + " - " + profession,
-                  style: AppTypography.titleCard,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "$section - $profession",
+                      style: AppTypography.titleCard,
+                    ),
+                    Text(
+                      "R\$ $price",
+                      style: AppTypography.titleCard,
+                    )
+                  ],
                 ),
                 SizedBox(height: 5),
                 Divider(
                   color: AppColors.whiteColor,
                   thickness: 1,
                 ),
+                SizedBox(height: 5),
                 Text(
-                  "Serviço: " + task,
+                  "Serviço: $task",
                   style: AppTypography.subtitleCard,
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "Data: " + date + " : " + hour,
+                  "Data: $date : $hour",
                   style: AppTypography.subtitleCard,
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "Preço: " + price,
+                  "Status: $status",
                   style: AppTypography.subtitleCard,
                 ),
                 SizedBox(height: 5),
-                Text(
-                  "Status: Pendente",
-                  style: AppTypography.subtitleCard,
-                ),
+                Flexible(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      GestureDetector(
+                        child: Icon(
+                          Icons.remove_circle,
+                          size: 32,
+                          color: AppColors.white,
+                        ),
+                        onTap: () {},
+                      ),
+                      GestureDetector(
+                        child: Icon(
+                          Icons.mode_edit,
+                          size: 32,
+                          color: AppColors.white,
+                        ),
+                        onTap: () {},
+                      )
+                    ],
+                  ),
+                )
               ],
             ),
           ),

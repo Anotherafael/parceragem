@@ -31,7 +31,7 @@ class AppColors {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: <Color>[
-      AppColors.primaryCardAlt,
+      AppColors.secondaryCard,
       AppColors.secondaryCardAlt,
     ],
   );
