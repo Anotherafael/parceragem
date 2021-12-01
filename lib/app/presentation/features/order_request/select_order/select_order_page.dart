@@ -13,6 +13,7 @@ class SelectOrderPage extends GetView<SelectOrderController> {
     final id = Get.parameters['id'];
     controller.findOrders(id!);
     return Layout(
+      title: "Esses são os serviços que encontramos.",
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

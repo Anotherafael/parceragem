@@ -12,6 +12,7 @@ class SelectProfessionPage extends GetView<SelectProfessionController> {
     final id = Get.parameters['id'];
     controller.findProfessions(id!);
     return Layout(
+      title: "Qual profissão?",
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

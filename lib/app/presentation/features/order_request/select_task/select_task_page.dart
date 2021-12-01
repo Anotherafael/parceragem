@@ -12,6 +12,7 @@ class SelectTaskPage extends GetView<SelectTaskController> {
     final id = Get.parameters['id'];
     controller.findTasks(id!);
     return Layout(
+      title: "Qual dos serviços você procura?",
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
