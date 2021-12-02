@@ -20,8 +20,8 @@ class AppTypography {
 
   static final TextStyle titlePage = GoogleFonts.montserrat(
     color: AppColors.white,
-    fontWeight: FontWeight.w600,
-    fontSize: 24,
+    fontWeight: FontWeight.w500,
+    fontSize: 22,
   );
 
   static final TextStyle titleCard = GoogleFonts.montserrat(

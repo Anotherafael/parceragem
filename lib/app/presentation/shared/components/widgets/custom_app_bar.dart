@@ -23,7 +23,7 @@ class CustomAppbar extends PreferredSize {
               alignment: Alignment.center,
               height: 150,
               decoration: BoxDecoration(
-                gradient: AppColors.dangerGradient,
+                color: AppColors.secondaryCardAlt,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(135),
                   bottomRight: Radius.circular(135),

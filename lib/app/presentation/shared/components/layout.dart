@@ -19,60 +19,69 @@ class Layout extends StatefulWidget {
 class _LayoutState extends State<Layout> {
   int index = 0;
 
-  late String user = "";
-  void getUser() async {
+  static String? name;
+  Future<String> getUser() async {
     final prefs = await SharedPreferences.getInstance();
-    user = prefs.getString("user")!;
+    name = prefs.getString("user")!;
+    return name!;
   }
 
   @override
   Widget build(BuildContext context) {
-    if (widget.title == null) {
-      getUser();
-      widget.title = "Boas vindas,\n$user";
-    }
-    getUser();
-    return Scaffold(
-      appBar: CustomAppbar(widget.title),
-      backgroundColor: AppColors.primary,
-      body: widget.body,
-      floatingActionButton: widget.floatingActionButton,
-      bottomNavigationBar: bottomBar(),
+    return FutureBuilder(
+      future: getUser(),
+      builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+        if (widget.title == null) {
+          widget.title = "Boas vindas,\n$name";
+        }
+        return Scaffold(
+          appBar: CustomAppbar(widget.title),
+          backgroundColor: AppColors.primary,
+          body: widget.body,
+          floatingActionButton: widget.floatingActionButton,
+          bottomNavigationBar: bottomBar(),
+        );
+      },
     );
   }
 
   Widget bottomBar() {
     return Container(
-      padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
             color: AppColors.white,
-            width: 2,
+            width: 0.5,
           ),
         ),
       ),
       child: BottomNavigationBar(
         showSelectedLabels: true,
         backgroundColor: AppColors.primary,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.white,
+        unselectedItemColor: AppColors.white,
+        selectedItemColor: AppColors.white,
         currentIndex: index,
         onTap: onTabTapped,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home_rounded,
-              size: 32,
+              size: 24,
             ),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_rounded),
+            icon: Icon(
+              Icons.calendar_today_rounded,
+              size: 24,
+            ),
             label: "Meus Pedidos",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people_alt_rounded),
+            icon: Icon(
+              Icons.people_alt_rounded,
+              size: 24,
+            ),
             label: "Perfil",
           )
         ],
