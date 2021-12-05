@@ -37,6 +37,7 @@ class MyRequestPage extends GetView<MyRequestsController> {
                 nameType = "Profissional";
               }
               return cardItem(
+                state[index].id,
                 state[index].order.task.profession.section.name,
                 state[index].order.task.profession.name,
                 state[index].order.task.name,
@@ -70,6 +71,7 @@ class MyRequestPage extends GetView<MyRequestsController> {
   }
 
   Widget cardItem(
+    String id,
     String section,
     String profession,
     String task,
@@ -143,6 +145,7 @@ class MyRequestPage extends GetView<MyRequestsController> {
                       size: 32,
                       color: AppColors.white,
                     ),
+                    onTap: () {},
                   ),
                   GestureDetector(
                     child: Icon(
@@ -150,6 +153,7 @@ class MyRequestPage extends GetView<MyRequestsController> {
                       size: 32,
                       color: AppColors.white,
                     ),
+                    onTap: () {},
                   )
                 ],
               ),

@@ -38,9 +38,26 @@ class IOrderRepositoryImpl extends OrderRepository {
   }
 
   @override
-  Future<Either<ServerFailures, String>> cancelOrder() {
-    // TODO: implement cancelOrder
-    throw UnimplementedError();
+  Future<Either<ServerFailures, Unit>> cancelOrder(String id) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString("token");
+    try {
+      await client.delete(
+        "transaction/order",
+        options: Options(
+          headers:{
+            "authorization": "Bearer $token",
+          }
+        ),
+        data: id
+      );
+      return right(unit);
+    } on DioError catch (e) {
+      if (e.response!.statusCode == 404) {
+        return left(ServerFailures.notFound);
+      }
+      return left(ServerFailures.serverError);
+    }
   }
 
   @override

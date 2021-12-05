@@ -8,6 +8,7 @@ class CreateOrderController extends GetxController with StateMixin {
   final TaskRepository repository;
   final OrderRepository repo;
   CreateOrderController(this.repository, this.repo);
+  final haveText = false.obs;
 
   @override
   void onInit() {

@@ -46,22 +46,28 @@ class MyOrdersPage extends GetView<MyOrdersController> {
             ),
             controller.obx(
               (state) {
-                return ListView.builder(
-                  shrinkWrap: true,
-                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-                  itemCount: state.length,
-                  itemBuilder: (context, index) {
-                    return cardItem(
-                      state[index].task.profession.section.name,
-                      state[index].task.profession.name,
-                      state[index].task.name,
-                      DateFormat('dd/MM/yyyy').format(state[index].date),
-                      state[index].hour,
-                      state[index].price.toString(),
-                      state[index].status,
-                    );
-                  },
-                );
+                return StreamBuilder(
+                    stream: state,
+                    builder: (context, index) {
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+                        itemCount: state.length,
+                        itemBuilder: (context, index) {
+                          return cardItem(
+                            state[index].id,
+                            state[index].task.profession.section.name,
+                            state[index].task.profession.name,
+                            state[index].task.name,
+                            DateFormat('dd/MM/yyyy').format(state[index].date),
+                            state[index].hour,
+                            state[index].price.toString(),
+                            state[index].status,
+                          );
+                        },
+                      );
+                    });
               },
             ),
           ],
@@ -71,6 +77,7 @@ class MyOrdersPage extends GetView<MyOrdersController> {
   }
 
   Widget cardItem(
+    String id,
     String section,
     String profession,
     String task,
@@ -141,7 +148,9 @@ class MyOrdersPage extends GetView<MyOrdersController> {
                           size: 32,
                           color: AppColors.white,
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          controller.cancelOrder(id);
+                        },
                       ),
                       GestureDetector(
                         child: Icon(

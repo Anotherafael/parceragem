@@ -87,9 +87,19 @@ class CreateOrder extends GetView<CreateOrderController> {
                                       ),
                                       type: DateTimePickerType.dateTimeSeparate,
                                       dateMask: 'd MMM, yyyy',
-                                      initialValue: DateTime.now()
-                                          .add(Duration(days: 2))
-                                          .toString(),
+                                      initialValue: DateTime.now().weekday ==
+                                              DateTime.friday
+                                          ? DateTime.now()
+                                              .add(Duration(days: 3))
+                                              .toString()
+                                          : DateTime.now().weekday ==
+                                                  DateTime.thursday
+                                              ? DateTime.now()
+                                                  .add(Duration(days: 4))
+                                                  .toString()
+                                              : DateTime.now()
+                                                  .add(Duration(days: 2))
+                                                  .toString(),
                                       firstDate: DateTime(2000),
                                       lastDate: DateTime(2100),
                                       icon: Icon(Icons.event),
@@ -129,6 +139,12 @@ class CreateOrder extends GetView<CreateOrderController> {
                                     inputFormatters: [],
                                     prefix: Icon(Icons.attach_money_outlined),
                                     hint: "1000",
+                                    onChanged: (text) {
+                                      if (text.isNotEmpty)
+                                        controller.haveText.value = true;
+                                      else
+                                        controller.haveText.value = false;
+                                    },
                                   ),
                                 ),
                                 SizedBox(
@@ -137,38 +153,46 @@ class CreateOrder extends GetView<CreateOrderController> {
                                 SizedBox(
                                   height: 44,
                                   width: 150,
-                                  child: ElevatedButton(
-                                    style: ButtonStyle(
-                                      shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(32),
+                                  child: Obx(
+                                    () => ElevatedButton(
+                                      style: ButtonStyle(
+                                        shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(32),
+                                          ),
+                                        ),
+                                        backgroundColor: MaterialStateProperty
+                                            .resolveWith<Color>(
+                                          ((Set<MaterialState> states) {
+                                            if (states.contains(
+                                                MaterialState.pressed))
+                                              return AppColors.secondaryAlt
+                                                  .withAlpha(100);
+                                            else
+                                              return AppColors.secondaryAlt;
+                                          }),
                                         ),
                                       ),
-                                      backgroundColor: MaterialStateProperty
-                                          .resolveWith<Color>(
-                                        ((Set<MaterialState> states) {
-                                          if (states
-                                              .contains(MaterialState.pressed))
-                                            return AppColors.secondaryAlt
-                                                .withAlpha(100);
-                                          else
-                                            return AppColors.secondaryAlt;
-                                        }),
+                                      child: Text(
+                                        'Finalizar',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
                                       ),
+                                      onPressed: controller.haveText.value
+                                          ? () {
+                                              controller.addOrder(
+                                                  state[index].id,
+                                                  double.parse(
+                                                      moneyController.text),
+                                                  data!,
+                                                  hora!);
+                                              Get.offAllNamed("/myorders");
+                                            }
+                                          : null,
                                     ),
-                                    child: Text(
-                                      'Finalizar',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      controller.addOrder(state[index].id,
-                                          double.parse(moneyController.text), data!, hora!);
-                                      Get.offAllNamed("/myorders");
-                                    },
                                   ),
                                 ),
                               ],

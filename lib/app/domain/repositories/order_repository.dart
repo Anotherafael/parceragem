@@ -8,5 +8,5 @@ abstract class OrderRepository {
   Future<Either<ServerFailures, List<OrderEntity>>> getOrdersByProfessional();
   Future<Either<ServerFailures, Unit>> addOrder(Map<String, dynamic> map);
   Future<Either<ServerFailures, String>> updateOrder();
-  Future<Either<ServerFailures, String>> cancelOrder();
+  Future<Either<ServerFailures, Unit>> cancelOrder(String id);
 }
