@@ -31,45 +31,47 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      validator: (v) {
-        String? value;
-        if (validator == null) {
-          return null;
-        } else {
-          if (validator == "name") {
-            value = isValidName(v!);
-          } else if (validator == "email") {
-            value = isValidEmail(v!);
-          } else if (validator == "password") {
-            value = isValidPassword(v!);
-          } else if (validator == "document") {
-            value = isValidCpf(v!);
-          } else if (validator == "phone") {
-            value = isValidPhone(v!);
+    return Flexible(
+      child: TextFormField(
+        validator: (v) {
+          String? value;
+          if (validator == null) {
+            return null;
+          } else {
+            if (validator == "name") {
+              value = isValidName(v!);
+            } else if (validator == "email") {
+              value = isValidEmail(v!);
+            } else if (validator == "password") {
+              value = isValidPassword(v!);
+            } else if (validator == "document") {
+              value = isValidCpf(v!);
+            } else if (validator == "phone") {
+              value = isValidPhone(v!);
+            }
+            return value;
           }
-          return value;
-        }
-      },
-      inputFormatters: inputFormatters,
-      controller: controller,
-      obscureText: obscure,
-      keyboardType: textInputType,
-      onChanged: onChanged,
-      enabled: enabled,
-      decoration: InputDecoration(
-        errorStyle: AppTypography.errorInput,
-        errorMaxLines: 2,
-        fillColor: AppColors.white,
-        hintText: hint,
-        filled: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32),
+        },
+        inputFormatters: inputFormatters,
+        controller: controller,
+        obscureText: obscure,
+        keyboardType: textInputType,
+        onChanged: onChanged,
+        enabled: enabled,
+        decoration: InputDecoration(
+          errorStyle: AppTypography.errorInput,
+          errorMaxLines: 2,
+          fillColor: AppColors.white,
+          hintText: hint,
+          filled: true,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(32),
+          ),
+          prefixIcon: prefix,
+          suffixIcon: suffix,
         ),
-        prefixIcon: prefix,
-        suffixIcon: suffix,
+        textAlignVertical: TextAlignVertical.center,
       ),
-      textAlignVertical: TextAlignVertical.center,
     );
   }
 

@@ -51,4 +51,16 @@ class AppTypography {
     fontSize: 18,
     fontWeight: FontWeight.w400,
   );
+
+  static final TextStyle profileCardSubtitle = GoogleFonts.montserrat(
+    color: AppColors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
+
+  static final TextStyle profileCardTitle = GoogleFonts.montserrat(
+    color: AppColors.white,
+    fontSize: 14,
+    fontWeight: FontWeight.w300,
+  );
 }

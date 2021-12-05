@@ -12,6 +12,7 @@ class Layout extends StatefulWidget {
   final Widget body;
   final FloatingActionButton? floatingActionButton;
   String? title;
+  static String name = "";
   @override
   _LayoutState createState() => _LayoutState();
 }
@@ -19,29 +20,18 @@ class Layout extends StatefulWidget {
 class _LayoutState extends State<Layout> {
   int index = 0;
 
-  static String? name;
-  Future<String> getUser() async {
-    final prefs = await SharedPreferences.getInstance();
-    name = prefs.getString("user")!;
-    return name!;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: getUser(),
-      builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-        if (widget.title == null) {
-          widget.title = "Boas vindas,\n$name";
-        }
-        return Scaffold(
-          appBar: CustomAppbar(widget.title),
-          backgroundColor: AppColors.primary,
-          body: widget.body,
-          floatingActionButton: widget.floatingActionButton,
-          bottomNavigationBar: bottomBar(),
-        );
-      },
+    if (widget.title == null) {
+      String name = Layout.name;
+      widget.title = "Boas vindas,\n$name";
+    }
+    return Scaffold(
+      appBar: CustomAppbar(widget.title),
+      backgroundColor: AppColors.primary,
+      body: widget.body,
+      floatingActionButton: widget.floatingActionButton,
+      bottomNavigationBar: bottomBar(),
     );
   }
 
@@ -103,7 +93,7 @@ class _LayoutState extends State<Layout> {
         Get.offAllNamed("/myrequests");
         break;
       case 2:
-        Get.offAllNamed("/perfil");
+        Get.offAllNamed("/me");
     }
   }
 }
