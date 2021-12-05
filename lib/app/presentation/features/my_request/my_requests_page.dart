@@ -10,7 +10,7 @@ import 'controller/my_requests_controller.dart';
 
 class MyRequestPage extends GetView<MyRequestsController> {
   String? provider;
-  void getUser() async {
+  void getProvider() async {
     final prefs = await SharedPreferences.getInstance();
     provider = prefs.getString("provider");
   }  
@@ -25,7 +25,7 @@ class MyRequestPage extends GetView<MyRequestsController> {
             padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
             itemCount: state.length,
             itemBuilder: (context, index) {
-              getUser();
+              getProvider();
               String name;
               String nameType;
               if (provider == "professionals") {

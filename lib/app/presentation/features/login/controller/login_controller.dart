@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:parceragem/app/presentation/shared/components/layout.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../domain/core/failures/server_failures.dart';
 import '../../../../domain/repositories/auth_repository.dart';
 import '../../../../infra/models/auth_model.dart';
@@ -15,7 +17,7 @@ class LoginController extends GetxController {
   }
 
   Future<void> login(String email, String password, String provider) async {
-    isLoading.value=true;
+    isLoading.value = true;
     try {
       final result = await repository.login(
         LoginRequestModel(
@@ -38,10 +40,14 @@ class LoginController extends GetxController {
               break;
           }
         },
-        (r) {
+        (r) async {
           switch (provider) {
             case "users":
-              Get.toNamed("/home/client");
+              final prefs = await SharedPreferences.getInstance();
+              Layout.name = prefs.getString("user")!;
+              Get.toNamed(
+                "/home/client",
+              );
               break;
             case "professionals":
               Get.toNamed("/home/professional");
@@ -51,8 +57,8 @@ class LoginController extends GetxController {
       );
     } catch (e) {
       print(e);
-    } finally{
-      isLoading.value=false;
+    } finally {
+      isLoading.value = false;
     }
   }
 }

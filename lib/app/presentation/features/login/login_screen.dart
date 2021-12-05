@@ -102,7 +102,7 @@ class LoginScreen extends GetView<LoginController> {
                             parameters: {'provider': provider!});
                       },
                       child: Text(
-                        "Não possui uma conta? Cadastre-se aqui",
+                        "Não possui uma conta? Cadastre-se!",
                         style: TextStyle(
                           color: Colors.white,
                           decoration: TextDecoration.underline,

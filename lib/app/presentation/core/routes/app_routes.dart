@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:parceragem/app/presentation/features/profile/bindings/profile_bindings.dart';
+import 'package:parceragem/app/presentation/features/profile/profile_page.dart';
 import '../../features/create_order/bindings/create_order_bindings.dart';
 import '../../features/create_order/create_order.dart';
 import '../../features/login/bindings/login_bindings.dart';
@@ -63,6 +65,11 @@ class AppRoutes {
           name: "/myorders",
           page: () => MyOrdersPage(),
           binding: MyOrdersBindings(),
+        ),
+        GetPage(
+          name: "/me",
+          page: () => ProfilePage(),
+          binding: ProfileBindings(),
         ),
         GetPage(
           name: "/order-request/sections",
