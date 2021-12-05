@@ -13,8 +13,7 @@ class MyRequestPage extends GetView<MyRequestsController> {
   void getUser() async {
     final prefs = await SharedPreferences.getInstance();
     provider = prefs.getString("provider");
-  }
-
+  }  
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -71,7 +70,7 @@ class MyRequestPage extends GetView<MyRequestsController> {
   }
 
   Widget cardItem(
-    String id,
+    int id,
     String section,
     String profession,
     String task,
@@ -136,26 +135,35 @@ class MyRequestPage extends GetView<MyRequestsController> {
             ),
             SizedBox(height: 5),
             Flexible(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  GestureDetector(
-                    child: Icon(
-                      Icons.remove_circle,
-                      size: 32,
-                      color: AppColors.white,
+              child: Visibility(
+                visible: (status == "Pendente" && provider == "professionals"),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Icon(
+                        Icons.remove_circle,
+                        size: 32,
+                        color: AppColors.white,
+                      ),
+                      onTap: (status == "Pendente" && provider == "professionals") ? () {
+                        controller.rejectRequest(id);
+                        controller.findOrderRequests();
+                      } : null,
                     ),
-                    onTap: () {},
-                  ),
-                  GestureDetector(
-                    child: Icon(
-                      Icons.done,
-                      size: 32,
-                      color: AppColors.white,
-                    ),
-                    onTap: () {},
-                  )
-                ],
+                    GestureDetector(
+                      child: Icon(
+                        Icons.done,
+                        size: 32,
+                        color: AppColors.white,
+                      ),
+                      onTap: (status == "Pendente" && provider == "professionals") ? () {
+                        controller.acceptRequest(id);
+                        controller.findOrderRequests();
+                      } : null,
+                    )
+                  ],
+                ),
               ),
             )
           ],

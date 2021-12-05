@@ -74,4 +74,54 @@ class IOrderRequestRepositoryImpl extends OrderRequestRepository {
       return left(ServerFailures.serverError);
     }
   }
+
+  @override
+  Future<Either<ServerFailures, Unit>> acceptRequest(int id) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final token = prefs.getString('token');
+      final teste = client.post(
+        "order/accept",
+        data: {
+          "request_order_id": id
+        },
+        options: Options(
+          headers: {
+            "authorization": "Bearer $token",
+          },
+        ),
+      );
+      print("1");
+      return right(unit);
+    } on DioError catch (e) {
+      if (e.response!.statusCode == 404) {
+        return left(ServerFailures.notFound);
+      }
+      return left(ServerFailures.serverError);
+    }
+  }
+
+  @override
+  Future<Either<ServerFailures, Unit>> rejectRequest(int id) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final token = prefs.getString('token');
+      client.post(
+        "order/reject",
+        data: {"request_order_id": id},
+        options: Options(
+          headers: {
+            "authorization": "Bearer $token",
+          },
+        ),
+      );
+
+      return right(unit);
+    } on DioError catch (e) {
+      if (e.response!.statusCode == 404) {
+        return left(ServerFailures.notFound);
+      }
+      return left(ServerFailures.serverError);
+    }
+  }
 }
