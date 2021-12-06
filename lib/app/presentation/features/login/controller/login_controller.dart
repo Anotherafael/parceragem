@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:parceragem/app/presentation/features/profile/profile_page.dart';
 import 'package:parceragem/app/presentation/shared/components/layout.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../domain/core/failures/server_failures.dart';
@@ -41,10 +42,11 @@ class LoginController extends GetxController {
           }
         },
         (r) async {
+          final prefs = await SharedPreferences.getInstance();
+          Layout.name = prefs.getString("user")!;
+          ProfilePage.provider = prefs.getString("provider")!;
           switch (provider) {
             case "users":
-              final prefs = await SharedPreferences.getInstance();
-              Layout.name = prefs.getString("user")!;
               Get.toNamed(
                 "/home/client",
               );

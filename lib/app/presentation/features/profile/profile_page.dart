@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:parceragem/app/domain/entities/user_entity.dart';
 import 'package:parceragem/app/presentation/shared/components/widgets/custom_text_field.dart';
 import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
 import 'package:parceragem/app/presentation/shared/theme/app_typography.dart';
@@ -10,6 +9,7 @@ import 'controller/profile_controller.dart';
 
 class ProfilePage extends GetView<ProfileController> {
   get onPressed => null;
+  static late String provider;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +18,9 @@ class ProfilePage extends GetView<ProfileController> {
       body: controller.obx(
         (state) {
           return Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(
-                height: 32,
-              ),
               card(
                 controller,
                 context,
@@ -36,9 +33,6 @@ class ProfilePage extends GetView<ProfileController> {
                 "Telefone",
                 state.phone,
               ),
-              SizedBox(
-                height: 14,
-              ),
               Container(
                 height: 45,
                 margin: EdgeInsets.symmetric(horizontal: 32),
@@ -50,7 +44,44 @@ class ProfilePage extends GetView<ProfileController> {
                   onPressed: () {},
                   child: Text("Mudar senha"),
                 ),
-              )
+              ),
+              Visibility(
+                visible: (provider == "professionals"),
+                child: Container(
+                  height: 45,
+                  margin: EdgeInsets.symmetric(horizontal: 32),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          AppColors.secondaryCardAlt),
+                    ),
+                    onPressed: () {},
+                    child: Text("Adicionar Profissão"),
+                  ),
+                ),
+              ),
+              Container(
+                height: 45,
+                margin: EdgeInsets.symmetric(horizontal: 32),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(AppColors.dangerAlt),
+                  ),
+                  onPressed: () {
+                    controller.logout();
+                    Get.offAllNamed("/");
+                  },
+                  child: Text(
+                    "Desconectar",
+                    style: TextStyle(
+                      color: AppColors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+              ),
             ],
           );
         },
@@ -82,7 +113,7 @@ class ProfilePage extends GetView<ProfileController> {
     TextEditingController inputController = TextEditingController();
     return Container(
       height: 45,
-      margin: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+      margin: EdgeInsets.symmetric(horizontal: 32),
       padding: EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: AppColors.secondaryCardAlt,

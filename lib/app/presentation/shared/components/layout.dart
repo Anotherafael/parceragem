@@ -12,7 +12,7 @@ class Layout extends StatefulWidget {
   final Widget body;
   final FloatingActionButton? floatingActionButton;
   String? title;
-  static String name = "";
+  static String? name;
   @override
   _LayoutState createState() => _LayoutState();
 }
@@ -22,8 +22,8 @@ class _LayoutState extends State<Layout> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.title == null) {
-      String name = Layout.name;
+    if (widget.title == "") {
+      String? name = Layout.name;
       widget.title = "Boas vindas,\n$name";
     }
     return Scaffold(

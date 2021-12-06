@@ -21,6 +21,7 @@ class _HomeProfessionalState extends State<HomeProfessional> {
   @override
   Widget build(BuildContext context) {
     return Layout(
+      title: "",
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[

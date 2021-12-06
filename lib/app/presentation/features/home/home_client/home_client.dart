@@ -17,6 +17,7 @@ class _HomeClientState extends State<HomeClient> {
   @override
   Widget build(BuildContext context) {
     return Layout(
+      title: "",
       body: Column(
         children: <Widget>[
           Padding(
