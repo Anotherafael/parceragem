@@ -22,7 +22,7 @@ class _LayoutState extends State<Layout> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.title == "") {
+    if (widget.title == "" || widget.title == null) {
       String name = Layout.name;
       widget.title = "Boas vindas,\n$name";
     }
