@@ -23,32 +23,32 @@ class MyOrdersPage extends GetView<MyOrdersController> {
         ),
         backgroundColor: AppColors.secondaryCardAlt,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
-              child: IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: AppColors.white,
-                  size: 32,
-                ),
-                alignment: Alignment.centerLeft,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.fromLTRB(16, 0, 0, 0),
+            child: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                color: AppColors.white,
+                size: 32,
               ),
+              alignment: Alignment.centerLeft,
             ),
-            SizedBox(
-              width: 50,
-            ),
-            controller.obx(
-              (state) {
-                return ListView.builder(
-                  shrinkWrap: true,
-                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+          ),
+          SizedBox(
+            width: 50,
+          ),
+          controller.obx(
+            (state) {
+              return Expanded(
+                child: ListView.builder(
+                  shrinkWrap: false,
+                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                   itemCount: state.length,
                   itemBuilder: (context, index) {
                     return cardItem(
@@ -62,11 +62,14 @@ class MyOrdersPage extends GetView<MyOrdersController> {
                       state[index].status,
                     );
                   },
-                );
-              },
-            ),
-          ],
-        ),
+                ),
+              );
+            },
+          ),
+          SizedBox(
+            height: 75,
+          )
+        ],
       ),
     );
   }
@@ -143,10 +146,12 @@ class MyOrdersPage extends GetView<MyOrdersController> {
                           size: 32,
                           color: AppColors.white,
                         ),
-                        onTap: status == "Pendente" ? () {
-                          controller.cancelOrder(id);
-                          controller.findOrders();
-                        } : null,
+                        onTap: status == "Pendente"
+                            ? () {
+                                controller.cancelOrder(id);
+                                controller.findOrders();
+                              }
+                            : null,
                       ),
                       GestureDetector(
                         child: Icon(

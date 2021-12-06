@@ -9,6 +9,7 @@ import '../../shared/components/widgets/custom_text_field.dart';
 import '../../shared/theme/app_colors.dart';
 import '../../shared/theme/app_typography.dart';
 
+// ignore: must_be_immutable
 class CreateOrder extends GetView<CreateOrderController> {
   final TextEditingController moneyController = TextEditingController();
   String? data;
@@ -16,25 +17,25 @@ class CreateOrder extends GetView<CreateOrderController> {
   @override
   Widget build(BuildContext context) {
     return Layout(
+      title: "Criando um novo Serviço",
       body: controller.obx(
         (state) {
           return ListView.builder(
             itemCount: state.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.fromLTRB(0, 32, 0, 0),
                 child: GestureDetector(
-                  child: SizedBox(
-                    height: 50,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryColor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(
-                        child: Text(state[index].name,
-                            style: AppTypography.normalPrimaryWhite),
-                      ),
+                  child: Container(
+                    height: 45,
+                    margin: EdgeInsets.fromLTRB(32, 0, 32, 0),
+                    decoration: BoxDecoration(
+                      gradient: AppColors.violetCardGradient,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(state[index].name,
+                          style: AppTypography.titleCard),
                     ),
                   ),
                   onTap: () {

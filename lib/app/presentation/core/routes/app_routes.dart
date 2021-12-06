@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:parceragem/app/presentation/features/add_profession/add_profession_page.dart';
+import 'package:parceragem/app/presentation/features/add_profession/bindings/add_profession_bindings.dart';
 import 'package:parceragem/app/presentation/features/profile/bindings/profile_bindings.dart';
 import 'package:parceragem/app/presentation/features/profile/profile_page.dart';
 import '../../features/create_order/bindings/create_order_bindings.dart';
@@ -70,6 +72,11 @@ class AppRoutes {
           name: "/me",
           page: () => ProfilePage(),
           binding: ProfileBindings(),
+        ),
+        GetPage(
+          name: "/add-profession",
+          page: () => AddProfessionPage(),
+          binding: AddProfessionBindings(),
         ),
         GetPage(
           name: "/order-request/sections",

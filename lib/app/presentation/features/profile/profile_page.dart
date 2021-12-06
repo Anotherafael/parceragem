@@ -55,7 +55,9 @@ class ProfilePage extends GetView<ProfileController> {
                       backgroundColor: MaterialStateProperty.all<Color>(
                           AppColors.secondaryCardAlt),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed("/add-profession");
+                    },
                     child: Text("Adicionar Profissão"),
                   ),
                 ),

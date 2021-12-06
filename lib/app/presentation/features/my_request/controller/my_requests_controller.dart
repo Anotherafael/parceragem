@@ -16,31 +16,26 @@ class MyRequestsController extends GetxController with StateMixin {
     await findOrderRequests();
     await getProvider();
   }
+
   getProvider() async {
     final prefs = await SharedPreferences.getInstance();
     provider = prefs.getString("provider");
-  }  
+  }
 
   Future<void> acceptRequest(int id) async {
     try {
       final result = await repository.acceptRequest(id);
 
-      result.fold(
-        (l) {
-          switch (l) {
-            case ServerFailures.notFound:
-              Get.defaultDialog(title: 'Not Found');
-              break;
-            case ServerFailures.serverError:
-              Get.defaultDialog(title: 'Server Error');
-              break;
-          }
-        },
-        (r) => change(
-          r,
-          status: RxStatus.success(),
-        ),
-      );
+      result.fold((l) {
+        switch (l) {
+          case ServerFailures.notFound:
+            Get.defaultDialog(title: 'Not Found');
+            break;
+          case ServerFailures.serverError:
+            Get.defaultDialog(title: 'Server Error');
+            break;
+        }
+      }, (r) => (r) => RxStatus.success());
     } catch (e) {
       print(e);
       change([], status: RxStatus.error('Erro ao buscar os pedidos'));
@@ -51,22 +46,16 @@ class MyRequestsController extends GetxController with StateMixin {
     try {
       final result = await repository.rejectRequest(id);
 
-      result.fold(
-        (l) {
-          switch (l) {
-            case ServerFailures.notFound:
-              Get.defaultDialog(title: 'Not Found');
-              break;
-            case ServerFailures.serverError:
-              Get.defaultDialog(title: 'Server Error');
-              break;
-          }
-        },
-        (r) => change(
-          r,
-          status: RxStatus.success(),
-        ),
-      );
+      result.fold((l) {
+        switch (l) {
+          case ServerFailures.notFound:
+            Get.defaultDialog(title: 'Not Found');
+            break;
+          case ServerFailures.serverError:
+            Get.defaultDialog(title: 'Server Error');
+            break;
+        }
+      }, (r) => RxStatus.success());
     } catch (e) {
       print(e);
       change([], status: RxStatus.error('Erro ao buscar os pedidos'));

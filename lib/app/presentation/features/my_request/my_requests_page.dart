@@ -9,7 +9,6 @@ import '../../shared/theme/app_typography.dart';
 import 'controller/my_requests_controller.dart';
 
 class MyRequestPage extends GetView<MyRequestsController> {
-  
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -17,7 +16,7 @@ class MyRequestPage extends GetView<MyRequestsController> {
       body: controller.obx(
         (state) {
           return ListView.builder(
-            shrinkWrap: true,
+            shrinkWrap: false,
             padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
             itemCount: state.length,
             itemBuilder: (context, index) {
@@ -141,24 +140,30 @@ class MyRequestPage extends GetView<MyRequestsController> {
                         size: 32,
                         color: AppColors.white,
                       ),
-                      onTap: (status == "Pendente") ? () {
-                        controller.rejectRequest(id);
-                        controller.findOrderRequests();
-                      } : null,
+                      onTap: (status == "Pendente")
+                          ? () {
+                              controller.rejectRequest(id);
+                              controller.findOrderRequests();
+                            }
+                          : null,
                     ),
                   ),
                   Visibility(
-                    visible: (status == "Pendente" && controller.provider == "professionals"),
+                    visible: (status == "Pendente" &&
+                        controller.provider == "professionals"),
                     child: GestureDetector(
                       child: Icon(
                         Icons.done,
                         size: 32,
                         color: AppColors.white,
                       ),
-                      onTap: (status == "Pendente" && controller.provider == "professionals") ? () {
-                        controller.acceptRequest(id);
-                        controller.findOrderRequests();
-                      } : null,
+                      onTap: (status == "Pendente" &&
+                              controller.provider == "professionals")
+                          ? () {
+                              controller.acceptRequest(id);
+                              controller.findOrderRequests();
+                            }
+                          : null,
                     ),
                   )
                 ],

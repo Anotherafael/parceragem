@@ -16,16 +16,15 @@ class CreateOrderController extends GetxController with StateMixin {
     await findTasks();
   }
 
-  Future<void> addOrder(String taskId, double price, String date, String hour) async{
+  Future<void> addOrder(
+      String taskId, double price, String date, String hour) async {
     try {
-      final result = await repo.addOrder(
-        {
-          "task_id": taskId,
-          "price": price,
-          "date": date,
-          "hour": hour
-        }
-      );
+      final result = await repo.addOrder({
+        "task_id": taskId,
+        "price": price,
+        "date": date,
+        "hour": hour,
+      });
       result.fold((l) {
         switch (l) {
           case ServerFailures.notFound:
