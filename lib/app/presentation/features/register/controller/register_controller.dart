@@ -41,7 +41,7 @@ class RegisterController extends GetxController with StateMixin {
         },
         (r) {
           change(r, status: RxStatus.success());
-          Get.offAllNamed("/login");
+          Get.offAllNamed("/");
         },
       );
     } catch (e) {
