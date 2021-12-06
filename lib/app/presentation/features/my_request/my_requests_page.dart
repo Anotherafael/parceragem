@@ -9,11 +9,7 @@ import '../../shared/theme/app_typography.dart';
 import 'controller/my_requests_controller.dart';
 
 class MyRequestPage extends GetView<MyRequestsController> {
-  String? provider;
-  void getProvider() async {
-    final prefs = await SharedPreferences.getInstance();
-    provider = prefs.getString("provider");
-  }  
+  
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -25,10 +21,9 @@ class MyRequestPage extends GetView<MyRequestsController> {
             padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
             itemCount: state.length,
             itemBuilder: (context, index) {
-              getProvider();
               String name;
               String nameType;
-              if (provider == "professionals") {
+              if (controller.provider == "professionals") {
                 name = state[index].user.name;
                 nameType = "Cliente";
               } else {
@@ -135,35 +130,38 @@ class MyRequestPage extends GetView<MyRequestsController> {
             ),
             SizedBox(height: 5),
             Flexible(
-              child: Visibility(
-                visible: (status == "Pendente" && provider == "professionals"),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    GestureDetector(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Visibility(
+                    visible: (status == "Pendente"),
+                    child: GestureDetector(
                       child: Icon(
                         Icons.remove_circle,
                         size: 32,
                         color: AppColors.white,
                       ),
-                      onTap: (status == "Pendente" && provider == "professionals") ? () {
+                      onTap: (status == "Pendente") ? () {
                         controller.rejectRequest(id);
                         controller.findOrderRequests();
                       } : null,
                     ),
-                    GestureDetector(
+                  ),
+                  Visibility(
+                    visible: (status == "Pendente" && controller.provider == "professionals"),
+                    child: GestureDetector(
                       child: Icon(
                         Icons.done,
                         size: 32,
                         color: AppColors.white,
                       ),
-                      onTap: (status == "Pendente" && provider == "professionals") ? () {
+                      onTap: (status == "Pendente" && controller.provider == "professionals") ? () {
                         controller.acceptRequest(id);
                         controller.findOrderRequests();
                       } : null,
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             )
           ],

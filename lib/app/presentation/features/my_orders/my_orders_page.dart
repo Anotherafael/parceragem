@@ -143,9 +143,10 @@ class MyOrdersPage extends GetView<MyOrdersController> {
                           size: 32,
                           color: AppColors.white,
                         ),
-                        onTap: () {
+                        onTap: status == "Pendente" ? () {
                           controller.cancelOrder(id);
-                        },
+                          controller.findOrders();
+                        } : null,
                       ),
                       GestureDetector(
                         child: Icon(

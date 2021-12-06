@@ -1,19 +1,25 @@
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../domain/core/failures/server_failures.dart';
 import '../../../../domain/repositories/order_request_repository.dart';
 
 class MyRequestsController extends GetxController with StateMixin {
   final OrderRequestRepository repository;
-
+  late String? provider;
   MyRequestsController(
     this.repository,
   );
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-    findOrderRequests();
+    await findOrderRequests();
+    await getProvider();
   }
+  getProvider() async {
+    final prefs = await SharedPreferences.getInstance();
+    provider = prefs.getString("provider");
+  }  
 
   Future<void> acceptRequest(int id) async {
     try {

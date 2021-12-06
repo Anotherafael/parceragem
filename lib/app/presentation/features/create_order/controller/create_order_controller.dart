@@ -11,8 +11,9 @@ class CreateOrderController extends GetxController with StateMixin {
   final haveText = false.obs;
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
+    await findTasks();
   }
 
   Future<void> addOrder(String taskId, double price, String date, String hour) async{

@@ -13,10 +13,8 @@ class CreateOrder extends GetView<CreateOrderController> {
   final TextEditingController moneyController = TextEditingController();
   String? data;
   String? hora;
-
   @override
   Widget build(BuildContext context) {
-    controller.findTasks();
     return Layout(
       body: controller.obx(
         (state) {
@@ -207,13 +205,15 @@ class CreateOrder extends GetView<CreateOrderController> {
             },
           );
         },
+        onLoading: CircularProgressIndicator(),
+        onEmpty: CircularProgressIndicator(),
         onError: (error) {
           return SizedBox(
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(error!),
+                Text("Qualquer coisa"),
                 TextButton(
                   onPressed: () => controller.findTasks(),
                   child: Text('Tentar novamente'),

@@ -43,13 +43,12 @@ class IOrderRepositoryImpl extends OrderRepository {
     final token = prefs.getString("token");
     try {
       await client.delete(
-        "transaction/order",
+        "transaction/order/$id",
         options: Options(
           headers:{
             "authorization": "Bearer $token",
           }
         ),
-        data: id
       );
       return right(unit);
     } on DioError catch (e) {
