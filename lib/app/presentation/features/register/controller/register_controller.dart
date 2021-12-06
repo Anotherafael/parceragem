@@ -41,14 +41,7 @@ class RegisterController extends GetxController with StateMixin {
         },
         (r) {
           change(r, status: RxStatus.success());
-          switch (provider) {
-            case "users":
-              Get.toNamed("/home/client");
-              break;
-            case "professionals":
-              Get.toNamed("/home/professional");
-              break;
-          }
+          Get.offAllNamed("/login");
         },
       );
     } catch (e) {

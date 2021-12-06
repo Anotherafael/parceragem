@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:parceragem/app/presentation/features/profile/profile_page.dart';
 import 'package:parceragem/app/presentation/shared/theme/app_colors.dart';
 import 'package:parceragem/app/presentation/shared/theme/app_typography.dart';
 
@@ -40,8 +41,6 @@ class CustomTextField extends StatelessWidget {
           } else {
             if (validator == "name") {
               value = isValidName(v!);
-            } else if (validator == "email") {
-              value = isValidEmail(v!);
             } else if (validator == "password") {
               value = isValidPassword(v!);
             } else if (validator == "document") {

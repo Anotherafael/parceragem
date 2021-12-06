@@ -45,7 +45,7 @@ class LoginRequestModel {
   }
 }
 
-class RegisterRequestModel{
+class RegisterRequestModel {
   String name;
   String email;
   String password;
@@ -62,12 +62,12 @@ class RegisterRequestModel{
     required this.provider,
   });
 
-  Map<String, dynamic> toJson(){
+  Map<String, dynamic> toJson() {
     Map<String, dynamic> map = {
-      'name' : name.trim(),
+      'name': name.trim(),
       'email': email.trim(),
       'password': password.trim(),
-      'document': document.trim(),
+      'document_id': document.trim(),
       'phone': phone.trim(),
       'provider': provider.trim(),
     };

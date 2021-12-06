@@ -29,13 +29,6 @@ class RegisterScreen extends GetView<RegisterController> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    if (provider == "users") {
-      textInputDocumentId = "CPF";
-      formatter = maskCpf;
-    } else {
-      textInputDocumentId = "CNPJ";
-      formatter = maskCNPJ;
-    }
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.primary,
@@ -96,8 +89,8 @@ class RegisterScreen extends GetView<RegisterController> {
                       height: 7,
                     ),
                     CustomTextField(
-                      inputFormatters: [formatter],
-                      hint: textInputDocumentId,
+                      inputFormatters: [maskCpf],
+                      hint: "CPF",
                       controller: documentController,
                       prefix: Icon(Icons.picture_in_picture_outlined),
                       textInputType: TextInputType.number,
